@@ -20,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource("/incoming", IncomingController::class);
+Route::resource("/outgoing", OutgoingController::class);
