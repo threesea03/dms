@@ -19,7 +19,7 @@
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <form action="/search" method="get">
+                                <form action="{{ route('index') }}" method="get">
                                     <div class="input-group" style="margin-left: 310px">
                                         <input type="search" name="search" class="form-control" style="height: 31px; width:80px">
                                         <span class="input-group-prepend">
@@ -54,7 +54,7 @@
                                 <tbody>
                                 @foreach($incoming as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->ctrli }}</td>
                                         <td>{{ $item->ctrle }}</td>
                                         <td>{{ $item->date }}</td>
                                         <td>{{ $item->time }}</td>

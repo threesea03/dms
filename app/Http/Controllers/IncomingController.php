@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\DocumentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Incoming;
@@ -8,9 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class IncomingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $incoming = Incoming::all();
+        $incoming = Incoming::where('reciever', 'like', '%'. $request->search . '%')->orWhere('typeofservice', 'like', '%'. $request->search .'%')->get();
+        // $incoming = Incoming::all();
         return view ('incoming.index')->with('incoming', $incoming);
     }
     
@@ -42,10 +45,13 @@ class IncomingController extends Controller
         return view('incoming.edit')->with('incoming', $incoming);
     }
   
-    public function update(Request $request, $id)
+    public function update(DocumentRequest $request, $id)
     {
         $incoming = Incoming::find($id);
         $input = $request->all();
+        $fileName = time().$request->file('files')->getClientOriginalName();
+        $path = $request->file('files')->storeAs('files',$fileName,'public');
+        $input["files"] = '/storage/'.$path;
         $incoming->update($input);
         return redirect('incoming')->with('flash_message', 'Updated SUccessfully!');  
     }

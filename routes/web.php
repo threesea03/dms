@@ -19,5 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource("/incoming", IncomingController::class);
+
 Route::resource("/outgoing", OutgoingController::class);
+Route::get('incoming', [IncomingController::class, 'index'])->name('index');
+Route::post('incoming', [IncomingController::class, 'store']);
+Route::get('incoming/create', [IncomingController::class, 'create']);
+Route::get('incoming/{incoming}', [IncomingController::class, 'show']);
+Route::post('incoming/{incoming}/edit', [IncomingController::class, 'update']);
+Route::get('incoming/{id}/edit', [IncomingController::class, 'edit']);
+
+

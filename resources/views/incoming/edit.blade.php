@@ -10,9 +10,13 @@
     <div id="createblade-row" class="row justify-content-center align-items-center">
         <div id="createblade-column" class="col-md-8">
             <div id="createblade-box" class="col-md-12">
-                <form action="{{ url('incoming/' .$incoming->id) }}" method="post" enctype="multipart/form-data">
+
+                @foreach ($errors->all() as $message) 
+                    {{$message }}  
+                @endforeach
+                <form action="{{ url('incoming/' .$incoming->ctrli. '/edit') }}" method="post" enctype="multipart/form-data">
                 {!! csrf_field() !!}
-                @method("PATCH")
+                @method("POST")
 
         <input type="hidden" name="ctrli" id="ctrli" value="{{$incoming->ctrli}}" id="ctrli" />
 
