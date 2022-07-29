@@ -6,6 +6,8 @@ use App\Http\Requests\DocumentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Incoming;
+use App\Models\Log;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class IncomingController extends Controller
@@ -56,6 +58,11 @@ class IncomingController extends Controller
         $path = $request->file('files')->storeAs('files',$fileName,'public');
         $input["files"] = '/storage/'.$path;
         $incoming->update($input);
+        Log::create([
+            'user_id' => 1,
+            'action' => 'update',
+            'module' => 'Incoming',
+        ]);
         return redirect('incoming')->with('flash_message', 'Updated SUccessfully!');  
     }
   

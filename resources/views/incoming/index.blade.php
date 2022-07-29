@@ -19,7 +19,7 @@
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <form action="{{ route('index') }}" method="get">
+                                <form action="{{ route('incoming.index') }}" method="get">
                                     <div class="input-group" style="margin-left: 310px">
                                         <input type="search" name="search" class="form-control" style="height: 31px; width:80px">
                                         <span class="input-group-prepend">

@@ -20,18 +20,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('outgoing', [OutgoingController::class, 'index'])->name('index');
-Route::post('outgoing', [OutgoingController::class, 'store']);
-Route::get('outgoing/create', [OutgoingController::class, 'create']);
-Route::get('outgoing/{outgoing}', [OutgoingController::class, 'show']);
-Route::post('outgoing/{outgoing}/edit', [OutgoingController::class, 'update']);
-Route::get('outgoing/{id}/edit', [OutgoingController::class, 'edit']);
+Route::get('outgoing', [OutgoingController::class, 'index'])->name('outgoing.index');
+Route::post('outgoing', [OutgoingController::class, 'store'])->name('outgoing.store');
+Route::get('outgoing/create', [OutgoingController::class, 'create'])->name('outgoing.create');
+Route::get('outgoing/{outgoing}', [OutgoingController::class, 'show'])->name('outgoing.show');
+Route::post('outgoing/{outgoing}/edit', [OutgoingController::class, 'update'])->name('outgoing.update');
+Route::get('outgoing/{id}/edit', [OutgoingController::class, 'edit'])->name('outgoing.edit');
 
-Route::get('incoming', [IncomingController::class, 'index'])->name('index');
-Route::post('incoming', [IncomingController::class, 'store']);
-Route::get('incoming/create', [IncomingController::class, 'create']);
-Route::get('incoming/{incoming}', [IncomingController::class, 'show']);
-Route::post('incoming/{incoming}/edit', [IncomingController::class, 'update']);
-Route::get('incoming/{id}/edit', [IncomingController::class, 'edit']);
+Route::get('incoming', [IncomingController::class, 'index'])->name('incoming.index');
+Route::post('incoming', [IncomingController::class, 'store'])->name('incoming.store');
+Route::get('incoming/create', [IncomingController::class, 'create'])->name('incoming.create');
+Route::get('incoming/{incoming}', [IncomingController::class, 'show'])->name('incoming.show');
+Route::post('incoming/{incoming}/edit', [IncomingController::class, 'update'])->name('incoming.update');
+Route::get('incoming/{id}/edit', [IncomingController::class, 'edit'])->name('incoming.edit');
 
 

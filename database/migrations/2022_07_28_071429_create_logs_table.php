@@ -20,7 +20,6 @@ return new class extends Migration
             $table->json('new_data')->nullable();
             $table->string('action');
             $table->string('module');
-            $table->string('type');
             $table->timestamps();
         });
     }
