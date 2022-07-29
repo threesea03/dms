@@ -55,14 +55,14 @@
 
                   <div class="col-md-12">
                     <label>Files</label></br>
-                    <input type="link" name="files" id="files" class="form-control"></br>
+                    <input type="file" name="files" id="files" class="form-control"></br>
                   </div>
         
                   <div class="row">
                     <label>Remarks 
-                     <select id='remarks' name='remarks' class="form-select">
+                     <select id="remarks" name="remarks_type" class="form-select">
                         <option selected disabled>-SELECT REMARKS-</option>
-                        <option> Pending </option>
+                        <option value='Pending'> Pending </option>
                         <option value='Done'> Done </option>
                       </select>
                     </label></br>
@@ -72,8 +72,12 @@
                   </div>
         
                   <div class="btn-group" role="group">
-                    <a href="{{url()->previous()}}" class="btn btn-default" style="background-color: rgba(158, 17, 17, 0.767); width:110px; font-family: Arial; border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; margin-left:200px; height:40px;">Cancel</a>
-                    <input type="submit" value="Save" class="btn btn-success" style="margin-top:20px; margin-bottom:20px; margin-left:20px; width:110px; height:40px; font-family: Arial; border-radius:25px" data-inline:="true"></br>
+                    <a href="{{url()->previous()}}" class="btn btn-default" style="background-color: rgba(158, 17, 17, 0.767); 
+                      width:110px; font-family: Arial; border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; 
+                      margin-left:200px; height:40px;">Cancel</a>
+                      
+                    <input type="submit" value="Save" class="btn btn-success" style="margin-top:20px; margin-bottom:20px; 
+                      margin-left:20px; width:110px; height:40px; font-family: Arial; border-radius:25px" data-inline:="true"></br>
                   </div>
                 </form>
               </div>

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string("agency");
             $table->string("timereceived");
             $table->string("files");
+            $table->string("remarks_type");
             $table->string("remarks");
             $table->timestamps();
         });

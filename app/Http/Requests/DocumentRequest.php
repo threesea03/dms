@@ -24,7 +24,7 @@ class DocumentRequest extends FormRequest
     public function rules()
     {
         return [
-            'ctrle' => 'required',
+            
             'files' => 'required|file|mimes:pdf'
         ];
     }

@@ -20,8 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('outgoing', [OutgoingController::class, 'index'])->name('index');
+Route::post('outgoing', [OutgoingController::class, 'store']);
+Route::get('outgoing/create', [OutgoingController::class, 'create']);
+Route::get('outgoing/{outgoing}', [OutgoingController::class, 'show']);
+Route::post('outgoing/{outgoing}/edit', [OutgoingController::class, 'update']);
+Route::get('outgoing/{id}/edit', [OutgoingController::class, 'edit']);
 
-Route::resource("/outgoing", OutgoingController::class);
 Route::get('incoming', [IncomingController::class, 'index'])->name('index');
 Route::post('incoming', [IncomingController::class, 'store']);
 Route::get('incoming/create', [IncomingController::class, 'create']);

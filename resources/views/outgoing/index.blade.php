@@ -44,14 +44,15 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->agency }}</td>
                                         <td>{{ $item->timereceived }}</td>
-                                        <td>{{ $item->files }}</td>
-                                        <td>{{ $item->remarks }}
-                                        </td>
- 
+                                        <td><iframe src="{{ asset ($item->files) }}" height="60" width="60"></iframe></td>
+                                        <td>{{ $item->remarks }}</td>
+
                                         <td>
                                             <div class="btn-group" role="group">
-                                                <a href="{{ url('/outgoing/' . $item->ctrli) }}" title="View"><button class="btn btn-secondary btn-sm"><i class="fa fa-eye" aria-hidden="true"></i>View</button></a>
-                                                <a href="{{ url('/outgoing/' . $item->ctrli . '/edit') }}" title="Edit"><button class="btn btn-danger btn-sm" style="margin-left: 2px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button></a>
+                                                <a href="{{ url('/outgoing/' . $item->ctrli) }}" title="View"><button class="btn btn-secondary btn-sm">
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>View</button></a>
+                                                <a href="{{ url('/outgoing/' . $item->ctrli . '/edit') }}" title="Edit"><button class="btn btn-danger btn-sm" 
+                                                    style="margin-left: 2px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button></a>
                                             </div>
                                         </td>
                                     </tr>
