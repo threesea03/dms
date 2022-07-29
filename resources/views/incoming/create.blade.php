@@ -1,4 +1,4 @@
-@extends('incoming.layout')
+@extends('incoming.generate')
 @section('content')
  
 <div class="col-md-8" style="margin-left:250px">

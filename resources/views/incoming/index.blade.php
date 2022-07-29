@@ -4,10 +4,10 @@
         <div class="row">
  
             <div class="col-md-12">
-                <div class="card" style="margin-top: 20px">
+                <div class="card" style="margin-top: 20px; margin-bottom:20px">
 
                     <div class="card-header">
-                        <h2 class="text-center">Incoming Communications Page</h2>
+                        <h4 class="text-center">Incoming Communications Page</h4>
                     </div>
 
                     <div class="card-body">

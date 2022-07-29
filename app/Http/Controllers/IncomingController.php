@@ -12,7 +12,10 @@ class IncomingController extends Controller
 {
     public function index(Request $request)
     {
-        $incoming = Incoming::where('reciever', 'like', '%'. $request->search . '%')->orWhere('typeofservice', 'like', '%'. $request->search .'%')->get();
+        $incoming = Incoming::where('reciever', 'like', '%'. $request->search . '%')
+                            ->orWhere('typeofservice', 'like', '%'. $request->search .'%')
+                            ->orderBy('ctrli','DESC')
+                            ->get();
         // $incoming = Incoming::all();
         return view ('incoming.index')->with('incoming', $incoming);
     }
