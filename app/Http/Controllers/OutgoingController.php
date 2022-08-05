@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Storage;
 
 class OutgoingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $outgoing = Outgoing::all();
+        $outgoing = Outgoing::where('subject', 'like', '%'. $request->search . '%')
+                            ->orWhere('typeofservice', 'like', '%'. $request->search .'%')
+                            ->orderBy('ctrli','DESC')
+                            ->get();
         return view ('outgoing.index')->with('outgoing', $outgoing);
     }
-
-    
-
     
     public function create()
     {
@@ -57,11 +57,11 @@ class OutgoingController extends Controller
         $outgoing->update($input);
         return redirect('outgoing')->with('flash_message', 'File Updated.');  
     }
-  
-    public function destroy($id)
+
+    public function userprofile()
     {
-        Outgoing::destroy($id);
-        return redirect('outgoing')->with('flash_message', 'File deleted.');  
+        // $outgoing = Outgoing::find($id);
+        return view('outgoing.userprofile');
     }
     
     

@@ -28,6 +28,11 @@ Route::get('outgoing/{outgoing}', [OutgoingController::class, 'show'])->name('ou
 Route::post('outgoing/{outgoing}/edit', [OutgoingController::class, 'update'])->name('outgoing.update');
 Route::get('outgoing/{id}/edit', [OutgoingController::class, 'edit'])->name('outgoing.edit');
 
+Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
+Route::post('admin/save', [AdminController::class, 'save'])->name('admin.save');
+Route::post('outgoing',[AdminController::class,'save'])->name('outgoing');
+Route::get('userprofile',[OutgoingController::class,'userprofile'])->name('outgoing.userprofile');
+
 Route::get('incoming', [IncomingController::class, 'index'])->name('incoming.index');
 Route::post('incoming', [IncomingController::class, 'store'])->name('incoming.store');
 Route::get('incoming/create', [IncomingController::class, 'create'])->name('incoming.create');

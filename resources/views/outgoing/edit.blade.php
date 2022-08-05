@@ -1,4 +1,4 @@
-@extends('outgoing.layout')
+@extends('outgoing.generate')
 @section('content')
 
 <div class="col-md-9" style="margin-left:150px">
@@ -45,21 +45,20 @@
         
                 <label>Files</label></br>
                 <input type="file" name="files" id="files" class="form-control"></br>
-                <iframe src="{{ asset ($outgoing->files) }}" height="60" width="60"></iframe>
 
-                <label>Remarks</label></br>
-                <select id='remarks' name='remarks' class="form-select">
-                  <option selected disabled>Done?</option>
+                <label> Progress Check </label></br>
+                <select id='remarks' name='remarks' class="form-select" style="margin-top:5px">
+                  <option selected disabled>Status</option>
                   <option value='Done'> Done </option>
-                </select></br>
+                </select>
 
                 <div class="btn-group" role="group">
                   <a href="{{url()->previous()}}" class="btn btn-default" style="background-color: rgba(158, 17, 17, 0.767); 
-                    width:110px; font-family: Arial; border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; 
-                    margin-left:200px; height:40px">Cancel</a>
+                          width:110px; font-family: Arial; border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; 
+                          margin-left:200px; height:40px">Cancel</a> 
 
                   <input type="submit" value="Update" class="btn btn-success" style="width:110px; font-family: Arial; 
-                    border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; margin-left:30px; height:40px"></br>
+                              border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; margin-left:30px; height:40px"></br>
                 </div>
               </form>
             </div>
