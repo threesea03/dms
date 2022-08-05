@@ -17,7 +17,8 @@ class IncomingController extends Controller
         $incoming = Incoming::where('reciever', 'like', '%'. $request->search . '%')
                             ->orWhere('typeofservice', 'like', '%'. $request->search .'%')
                             ->orderBy('ctrli','DESC')
-                            ->get();
+                            ->paginate(5); 
+                            //->get();
         // $incoming = Incoming::all();
         return view ('incoming.index')->with('incoming', $incoming);
     }
@@ -30,11 +31,12 @@ class IncomingController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        $input['remarks']= $request->remarks ?? $request->remarks_type;
         $fileName = time().$request->file('files')->getClientOriginalName();
         $path = $request->file('files')->storeAs('files',$fileName,'public');
         $input["files"] = '/storage/'.$path;
         Incoming::create($input);
-        return redirect('incoming')->with('flash_message', 'Added SUccessfuly!');  
+        return redirect('incoming')->with('flash_message', 'Added SUccessfully!');  
     }
     
 
@@ -77,6 +79,12 @@ class IncomingController extends Controller
         $search = $request->get('search');
         $incoming = DB::table('incoming')->where('ctrli','LIKE','%'.$search.'%')->paginate(5); 
         return view('incoming.index')->with('incoming', $incoming);
+    }
+
+    public function profile()
+    {
+        // $login = Incoming::find($id);
+        return view('incoming.profile');
     }
 }
  

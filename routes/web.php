@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\OutgoingController;
+use App\Http\Controllers\LoginController;
 use App\Http\Models\Incoming;
 
 /*
@@ -33,5 +34,10 @@ Route::get('incoming/create', [IncomingController::class, 'create'])->name('inco
 Route::get('incoming/{incoming}', [IncomingController::class, 'show'])->name('incoming.show');
 Route::post('incoming/{incoming}/edit', [IncomingController::class, 'update'])->name('incoming.update');
 Route::get('incoming/{id}/edit', [IncomingController::class, 'edit'])->name('incoming.edit');
+Route::get('profile',[IncomingController::class,'profile'])->name('incoming.profile');
+
+Route::get('login',[LoginController::class,'login']);
+Route::post('register',[LoginController::class, 'register']);
+Route::post('incoming',[LoginController::class,'loginUser'])->name('incoming');
 
 

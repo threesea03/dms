@@ -1,4 +1,4 @@
-@extends('incoming.layout')
+@extends('incoming.generate')
 @section('content')
  
 <div class="col-md-8" style="margin-left:250px">
@@ -65,14 +65,20 @@
         </div>
 
                 <label>Files</label></br>
-                <input type="file" name="files" id="files" class="form-control"></br>
-                <iframe src="{{ asset ($incoming->files) }}" height="60" width="60"></iframe>
+                <input type="file" name="files" id="files" value="{{ $incoming->files }}" class="form-control"></br>
+                
+                <label>Progress Check</label></br> 
+                    <select id="remarks" name="remarks" class="form-select">
+                        <option selected disabled>Status</option>
+                        <option value='Done'> Done </option>
+                        <option value='Pending'> Pending </option>
+                    </select> 
+                    
 
-                <label>Remarks</label></br>
-                <input type="text" name="remarks" id="remarks" value="{{$incoming->remarks}}" class="form-control"></br>
-
-
-                <input type="submit" value="Update" class="btn btn-success" style="margin-top:20px; margin-bottom:20px; margin-left:440px; width:110px; height:40px; font-family: Arial; border-radius:25px" data-inline:="true"></br>
+            <div class="btn-group" role="group">
+                <a href="{{url()->previous()}}" class="btn" style="width:110px; font-family: Arial; border-radius:25px; background-color: #E6E6FA; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
+                <input type="submit" value="Update" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:30px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color: #6A5ACD; color:white" data-inline:="true"></br>
+            </div>
                 </form>
             </div>
         </div>

@@ -59,13 +59,24 @@
         
                                   <label>Files</label></br>
                                   <input type="file" name="files" id="files" class="form-control"></br>
-        
-                                  <label>Remarks</label></br>
-                                  <input type="text" name="remarks" id="remarks" class="form-control" required></br>
+ 
+                             <div class="row">
+                                    <label>Status 
+                                     <select id="remarks" name="remarks_type" class="form-select">
+                                        <option selected disabled>Select</option>
+                                        <option value='Done'> Done </option>
+                                        <option value='Pending'> Pending </option>
+                                      </select>
+                                    </label></br>
+                                    {{-- <div class="col-md-12"> 
+                                        <input type="text" name="remarks" id="remarks" style="margin-top: 4px" class="form-control"></br>
+                                    </div>--}}
+                             </div>
+                                  
 
                               <div class="btn-group" role="group">
-                                  <a href="{{url()->previous()}}" class="btn btn-default" style="background-color: gray; width:110px; font-family: Arial; border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
-                                  <input type="submit" value="Save" class="btn btn-success" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px" data-inline:="true"></br>
+                                  <a href="{{url()->previous()}}" class="btn" style="background-color: #E6E6FA; width:110px; font-family: Arial; border-radius:25px; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
+                                  <input type="submit" value="Save" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color:#6A5ACD; color:white" data-inline:="true"></br>
                               </div>
                         </form>
                     </div>
