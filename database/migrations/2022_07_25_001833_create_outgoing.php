@@ -22,10 +22,11 @@ return new class extends Migration
             $table->string("subject");
             $table->string("name"); 
             $table->string("agency");
+            $table->string('progresschek');
             $table->string("timereceived");
             $table->string("files");
-            $table->string("remarks_type");
-            $table->string("remarks");
+            $table->string("remarks_type")->nullable();
+            $table->string("remarks")->nullable();
             $table->timestamps();
         });
     }

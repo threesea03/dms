@@ -9,7 +9,7 @@ class Outgoing extends Model
 {
     protected $table = 'outgoing';
     protected $primaryKey = 'ctrli';
-    protected $fillable = ['date', 'time', 'typeofservice', 'officeconcerned', 'subject', 'name', 'agency', 'timereceived', 'files', 'remarks'];
+    protected $fillable = ['date', 'time', 'typeofservice', 'officeconcerned', 'subject', 'name', 'agency', 'timereceived', 'files', 'remarks', 'remarks_type', 'progresschek'];
 
     public function remarksList()
     {

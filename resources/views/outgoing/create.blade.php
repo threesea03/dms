@@ -61,7 +61,7 @@
 
                   <div class="row">
                     <label> Status </label></br>
-                     <select id="remarks" name="remarks_type" class="form-select">
+                     <select id="remarks" name="progresschek" class="form-select">
                         <option selected disabled>Select Status</option>
                         <option> Pending </option>
                         <option value='Done'> Done </option>

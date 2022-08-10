@@ -7,7 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RemarkController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
+
 use App\Http\Models\Incoming;
 
 /*
@@ -32,12 +32,7 @@ Route::get('outgoing/{outgoing}', [OutgoingController::class, 'show'])->name('ou
 Route::post('outgoing/{outgoing}/edit', [OutgoingController::class, 'update'])->name('outgoing.update');
 Route::get('outgoing/{id}/edit', [OutgoingController::class, 'edit'])->name('outgoing.edit');
 Route::post('outgoing/{id}/add/remark', [RemarkController::class, 'addOutgoing'])->name('outgoing.remark.add');
-Route::get('dashboard',[DashboardController::class, 'dashboard'])->name('dashboard');
-
-
-Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
-Route::post('admin/save', [AdminController::class, 'save'])->name('admin.save');
-Route::post('outgoing',[AdminController::class,'save'])->name('outgoing');
+Route::get('dashboard/test',[DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('userprofile',[OutgoingController::class,'userprofile'])->name('outgoing.userprofile');
 
 Route::get('incoming', [IncomingController::class, 'index'])->name('incoming.index');
