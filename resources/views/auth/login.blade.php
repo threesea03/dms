@@ -12,7 +12,7 @@
             <div class="col-md-4 col-md-offset-4" style="margin-top: 100px">
                 <h4> Login </h4>
                 <hr>
-                <form action="{{ route('incoming') }}" method="POST">
+                <form action="{{ route('login') }}" method="POST">
                     @if (Session::has('success'))
                     <div class="alert alert-success"> {{Session::get('success')}}</div>
                     @endif

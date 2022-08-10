@@ -1,21 +1,22 @@
 @extends('incoming.layout')
 @section('content')
+
+<div class="container"></div>
     <div class="container">
         <div class="row">
- 
             <div class="col-md-12">
                 <div class="card" style="margin-top: 20px; margin-bottom:20px">
 
                     <div class="card-header">
-                        <h4 class="text-center">Incoming Communications Page</h4>
+                        <h4 class="text-center">Manage Accounts</h4>
                     </div>
 
                     <div class="card-body">
 
                         <div class="row">
                             <div class="col-md-6">
-                                <a href="{{ url('/incoming/create') }}" class="btn btn-sm" title="Add New Document" style="background-color: #6A5ACD; color:white">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> + Add Document
+                                <a href="{{ url('register') }}" class="btn btn-sm" title="Add New Document" style="background-color: #6A5ACD; color:white">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> + Add User
                                 </a>
                             </div>
                             {{-- <div class="col-md-3">  
@@ -33,35 +34,22 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Ctrl Internal</th>
-                                        <th>Ctrl External</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Reciever</th>
-                                        <th>Type of Service</th>
-                                        <th>Subject</th>
-                                        <th>Office Concerned</th>
-                                        <th>Endorsed To</th>
-                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Created At</th>
                                         <th>Action</th>
-
+                                    
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($incoming as $item)
+                                @foreach($users as $item)
                                     <tr>
-                                        <td>{{ $item->ctrli }}</td>
-                                        <td>{{ $item->ctrle }}</td>
-                                        <td>{{ $item->date }}</td>
-                                        <td>{{ $item->time }}</td>
-                                        <td>{{ $item->reciever }}</td>
-                                        <td>{{ $item->typeofservice }}</td>
-                                        <td>{{ $item->subject }}</td>
-                                        <td>{{ $item->officeconcerned }}</td>
-                                        <td>{{ $item->endorsedto }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->created_at }}</td>
 
                                         
                                         {{--@if ($incoming->remarks=='Done')
@@ -73,15 +61,16 @@
                                         @else
                                         
                                         @endif --}}
-                                        
-
-                                        <td>{{ $item->remarks }}</td>
 
  
                                         <td>
                                             <div class="btn-group" role="group">
-                                            <a href="{{ url('/incoming/' . $item->ctrli) }}" title="View"><button class="btn btn-sm" style="background-color: #E6E6FA"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/incoming/' . $item->ctrli . '/edit') }}" title="Edit"><button class="btn btn-sm" style="margin-left: 2px; background-color:#6A5ACD; color:white"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('user/' .$item->id) }}" title="View"><button class="btn btn-sm" style="background-color: #E6E6FA"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <form method="POST" action="{{ url('/manage-accounts' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" style="margin-left: 2px; background-color:#6A5ACD; color:white" class="btn btn-sm" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                            </form>
                                             </div>
                                         </td>
                                     </tr>
@@ -95,6 +84,7 @@
                 
             </div>
         </div>
-        {{ $incoming->links() }}
+        {{-- {{ $incoming->links() }} --}}
     </div>
-@endsection
+</div>
+@stop

@@ -20,22 +20,54 @@ rel="stylesheet"
                     <div class="col-sm-4 rounded-left" style="background-color: #6A5ACD">
                         <div class="card-block text-center text-white">
                             <i class="fas fa-user-tie fa-7x mt-5"></i>
-                            <h4 class="font-weight-bold mt-4">Trisha</h4>
-                            <p>Computer Engineering</p>
+                            <h4 class="font-weight-bold mt-4">Baguio City Hall</h4>
+                            <p>Management Information and Technology Division (MITD)</p>
                             <i class="far fa-edit fa-2x mb-4"></i>
                         </div>
                     </div>
                     <div class="col-sm-8 rounded-right" style="background-color: #E6E6FA">
                         <h3 class="mt-3 text-center">Information</h3>
                         <hr class="badge-primary mt-0 w-25">
-
-                        {{-- <form action="#" method="post"> 
-                        {!! csrf_field() !!}
-                        @method("POST")--}}
-                        <label>Password</label></br>
-                        <input type="text" name="password" id="password" value=" {{--{{ $login->password }}--}}" class="form-control" ></br> 
-                        <input type="submit" value="Update" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:30px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color: #6A5ACD; color:white" data-inline:="true"></br>
-                        </form>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p style="font-weight:bold"> First Name: </p>
+                            </div>
+                           <div class="col-md">
+                                <p>{{ $user->first_name }} </p>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p style="font-weight:bold"> Middle Name: </p>
+                            </div>
+                           <div class="col-md">
+                                <p>{{ $user->middle_name }} </p>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p style="font-weight:bold"> Last Name: </p>
+                            </div>
+                           <div class="col-md">
+                                <p>{{ $user->last_name }} </p>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p style="font-weight:bold"> Address: </p>
+                            </div>
+                           <div class="col-md">
+                                <p>{{ $user->address }} </p>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p style="font-weight:bold"> Phone Number: </p>
+                            </div>
+                           <div class="col-md">
+                                <p>{{ $user->phonenumber }} </p>
+                           </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,16 +1,19 @@
-@extends('incoming.generate')
+@extends('incoming.layout')
 @section('content')
  
 <div class="col-md-8" style="margin-left:250px">
     <div class="card" style="margin-top: 20px; margin-bottom:20px">
         <div class="card-header">
-            <h2 class="text-center"> Add New Document </h2>
+            <h4 class="text-center"> Add Document </h4>
         </div>
         <div class="card-body">
             <div id="createblade-row" class="row justify-content-center align-items-center">
                 <div id="createblade-column" class="col-md-8">
                     <div id="createblade-box" class="col-md-12">
-                        <form action="{{ url('incoming') }}" method="post" enctype="multipart/form-data">
+                        @if($errors->any())
+                            {!! implode('', $errors->all('<div>:message</div>')) !!}
+                        @endif
+                        <form action="{{ route('incoming.store') }}" method="post" enctype="multipart/form-data">
                           {!! csrf_field() !!}
         
                           <div class="row">
@@ -75,7 +78,7 @@
                                   
 
                               <div class="btn-group" role="group">
-                                  <a href="{{url()->previous()}}" class="btn" style="background-color: #E6E6FA; width:110px; font-family: Arial; border-radius:25px; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
+                                  <a href="{{url('incoming')}}" class="btn" style="background-color: #E6E6FA; width:110px; font-family: Arial; border-radius:25px; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
                                   <input type="submit" value="Save" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color:#6A5ACD; color:white" data-inline:="true"></br>
                               </div>
                         </form>

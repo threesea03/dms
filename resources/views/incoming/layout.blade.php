@@ -20,12 +20,12 @@
           <div class="col-md-3">  
           <form action="{{ route('incoming.index') }}" method="get"> 
             <div class="input-group" style="margin-left: 500px; margin-top:8px">
-                <input type="search" name="search" class="form-control" style="height: 31px; width:80px" placeholder="Search">
+                <input type="search" name="search" class="form-control" style="height: 31px; width:80px" placeholder="Search record">
                 <span class="input-group-prepend">
                     <button type="submit" class="btn btn-sm" style="margin-left: 2px; background-color:#E6E6FA">Search</button>
                 </span>
             </div>
-        </form> 
+          </form> 
           </div>
         </div>
       </nav>
@@ -41,34 +41,42 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                <li class="nav-item"> 
-                <a class="nav-link active" aria-current="page" href="{{ route('incoming.index') }}">Dashboard</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('incoming.dashboard') }}">Dashboard</a>
               </li>
               <li class="nav-item"> 
                 <a class="nav-link active" aria-current="page" href="#">About</a>
               </li>
+              <li class="nav-item"> 
+                <a class="nav-link active" aria-current="page" href="{{ route('incoming.index') }}">Incoming</a>
+              </li>
+              <li class="nav-item"> 
+                <a class="nav-link active" aria-current="page" href="{{ route('outgoing.index') }}">Outgoing</a>
+              </li>
               {{--<li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li>--}}
-              <li class="nav-item dropdown">
+              {{--<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Manage
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {{-- <li><a class="dropdown-item" href="{{ route('incoming.index') }}">Incoming</a></li> --}}
-                  <li><a class="dropdown-item" href="{{ route('outgoing.index') }}">Outgoing</a></li>
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+                  <li><a class="dropdown-item" href="{{ url('manage-accounts') }}">Accounts</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Logs</a></li>
-                </ul>
-              </li>
+                </ul> 
+              </li>--}}
 
-              <li class="nav-item dropdown" style="margin-left: 1180px">
+              <li class="nav-item dropdown" style="margin-left: 1100px">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Menu
                 </a>
                 <ul class="dropdown-menu" style="right:0; left:auto" aria-labelledby="navbarDropdown">
+                  <span style="padding-left: 0.75rem">{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }} {{ Auth::user()->last_name }}</span>
                   <li><a class="dropdown-item" href="{{ route('incoming.profile') }}">Profile</a></li>
+                  <li><a class="dropdown-item" href="{{ url('manage-accounts') }}">Accounts</a></li>
+                  <li><a class="dropdown-item" href="{{ route('incoming.logs') }}">Logs</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+                  <li><a class="dropdown-item" href="{{ url('logout') }}">Log Out</a></li>
                 </ul>
               </li>
 

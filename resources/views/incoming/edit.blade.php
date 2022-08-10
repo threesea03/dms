@@ -1,10 +1,10 @@
-@extends('incoming.generate')
+@extends('incoming.layout')
 @section('content')
  
 <div class="col-md-8" style="margin-left:250px">
 <div class="card" style="margin-top: 20px; margin-bottom:20px">
   <div class="card-header">
-    <h3 class="text-center"> Edit Information</h3>
+    <h4 class="text-center"> Edit Information</h4>
   </div>
   <div class="card-body">
     <div id="createblade-row" class="row justify-content-center align-items-center">
@@ -65,8 +65,15 @@
         </div>
 
                 <label>Files</label></br>
-                <input type="file" name="files" id="files" value="{{ $incoming->files }}" class="form-control"></br>
-                
+                <div class="row">
+                    <div class="col-md-3">
+                        <embed src="{{ asset ($incoming->files) }}" style="height: 40px; width: 60px; margin-bottom:20px; margin-left:30px"></br>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="file" name="files" id="files" value="{{ $incoming->files }}" class="form-control"></br>
+                    </div>
+                </div>
+
                 <label>Progress Check</label></br> 
                     <select id="remarks" name="remarks" class="form-select">
                         <option selected disabled>Status</option>
@@ -76,8 +83,8 @@
                     
 
             <div class="btn-group" role="group">
-                <a href="{{url()->previous()}}" class="btn" style="width:110px; font-family: Arial; border-radius:25px; background-color: #E6E6FA; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
-                <input type="submit" value="Update" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:30px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color: #6A5ACD; color:white" data-inline:="true"></br>
+                <a href="{{url('incoming')}}" class="btn" style="width:110px; font-family: Arial; border-radius:25px; background-color: #E6E6FA; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
+                <input type="submit" value="Update" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color: #6A5ACD; color:white" data-inline:="true"></br>
             </div>
                 </form>
             </div>

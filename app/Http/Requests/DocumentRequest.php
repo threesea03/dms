@@ -25,7 +25,7 @@ class DocumentRequest extends FormRequest
     {
         return [
             
-            'files' => 'required|file|mimes:pdf'
+            'files' => 'nullable|file|mimes:pdf'
         ];
     }
 }

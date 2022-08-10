@@ -6,6 +6,8 @@ use App\Http\Controllers\OutgoingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RemarkController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Models\Incoming;
 
 /*
@@ -45,9 +47,15 @@ Route::get('incoming/{incoming}', [IncomingController::class, 'show'])->name('in
 Route::post('incoming/{incoming}/edit', [IncomingController::class, 'update'])->name('incoming.update');
 Route::get('incoming/{id}/edit', [IncomingController::class, 'edit'])->name('incoming.edit');
 Route::get('profile',[IncomingController::class,'profile'])->name('incoming.profile');
+Route::get('dashboard', [IncomingController::class,'dashboard'])->name('incoming.dashboard');
+Route::get('trackingsystem-logs',[IncomingController::class, 'logs'])->name('incoming.logs');
 
-Route::get('login',[LoginController::class,'login']);
+Route::get('login', [LoginController::class, 'login'])->name('login.show');
+Route::post('login',[LoginController::class,'loginUser'])->name('login');
+Route::get('logout', [LoginController::class, 'logout']);
+Route::get('register',[LoginController::class, 'showRegister']);
 Route::post('register',[LoginController::class, 'register']);
-Route::post('incoming',[LoginController::class,'loginUser'])->name('incoming');
+// Route::post('incoming',[LoginController::class,'loginUser'])->name('incoming');
 
-
+Route::get('manage-accounts',[UserController::class,'manageuser'])->name('accounts');
+Route::get('user/{user}', [UserController::class, 'show']);
