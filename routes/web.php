@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\OutgoingController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RemarkController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Models\Incoming;
 
 /*
@@ -27,6 +29,9 @@ Route::get('outgoing/create', [OutgoingController::class, 'create'])->name('outg
 Route::get('outgoing/{outgoing}', [OutgoingController::class, 'show'])->name('outgoing.show');
 Route::post('outgoing/{outgoing}/edit', [OutgoingController::class, 'update'])->name('outgoing.update');
 Route::get('outgoing/{id}/edit', [OutgoingController::class, 'edit'])->name('outgoing.edit');
+Route::post('outgoing/{id}/add/remark', [RemarkController::class, 'addOutgoing'])->name('outgoing.remark.add');
+Route::get('dashboard',[DashboardController::class, 'dashboard'])->name('dashboard');
+
 
 Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
 Route::post('admin/save', [AdminController::class, 'save'])->name('admin.save');

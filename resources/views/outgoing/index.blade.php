@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card" style="margin-top: 20px">
-                    <div class="card-header" style="margin-left:350px; font-size:20px">
-                        <h2 style="font-size:22px">Outgoing Communications Page</h2>
+                    <div class="card-header">
+                        <h4 class="text-center">Outgoing Communications Page</h4>
                     </div>
                     <div class="card-body">
                             <div class="col-md-6">

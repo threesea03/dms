@@ -73,8 +73,9 @@
                             width:110px; font-family: Arial; border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; 
                             margin-left:200px; height:40px;">Cancel</a>
                       
-                    <input type="submit" value="Save" class="btn btn-success" style="margin-top:20px; margin-bottom:20px; 
-                                margin-left:20px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color:#D2691E" data-inline:="true"></br>
+                    <input type="submit" value="Save" class="btn btn-sm" style="margin-top:20px; margin-bottom:20px; 
+                                margin-left:20px; width:110px; height:40px; font-family: Arial; border-radius:25px; 
+                                background-color:#D2691E; color:white" data-inline:="true"></br>
                   </div>
                 </form>
               </div>

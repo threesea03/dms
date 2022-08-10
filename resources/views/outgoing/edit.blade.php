@@ -18,13 +18,18 @@
                 @method("POST")
 
                 <input type="hidden" name="ctrli" id="ctrli" value="{{$outgoing->ctrli}}" />
-        
-                <label>Date</label></br>
-                <input type="text" name="date" id="date" value="{{$outgoing->date}}" class="form-control"></br>
-        
-                <label>Time</label></br>
-                <input type="text" name="time" id="time" value="{{$outgoing->time}}" class="form-control"></br>
-       
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Date</label></br>
+                    <input type="text" name="date" id="date" value="{{$outgoing->date}}" class="form-control"></br>
+                  </div>
+                  <div class="col-md-6">
+                    <label>Time</label></br>
+                    <input type="text" name="time" id="time" value="{{$outgoing->time}}" class="form-control"></br>
+                  </div>
+                </div>
+                
                 <label>Type of Service</label></br>
                 <input type="text" name="typeofservice" id="typeofservice" value="{{$outgoing->typeofservice}}" class="form-control" /></br>
         
@@ -53,12 +58,18 @@
                 </select>
 
                 <div class="btn-group" role="group">
-                  <a href="{{url()->previous()}}" class="btn btn-default" style="background-color: rgba(158, 17, 17, 0.767); 
+                  {{-- <a href="{{url()->previous()}}" class="btn btn-default" style="background-color: rgba(158, 17, 17, 0.767); 
                           width:110px; font-family: Arial; border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; 
-                          margin-left:200px; height:40px">Cancel</a> 
+                          margin-left:200px; height:40px">Cancel</a> --}}
 
-                  <input type="submit" value="Update" class="btn btn-success" style="width:110px; font-family: Arial; 
-                              border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; margin-left:30px; height:40px"></br>
+                  {{-- <input type="submit" value="Update" class="btn btn-success" style="width:110px; font-family: Arial;  
+                              border-radius:25px; color:white; background-color:#D2691E margin-top:20px; margin-bottom:20px; margin-left:30px; height:40px"></br>--}}
+                  
+                  <a href="{{url()->previous()}}" class="btn" style="background-color: #84482F; color:white; margin-left:100px;
+                          width:110px; font-family: Arial; border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; 
+                          margin-left:200px; height:40px">Cancel</a>
+                  <input type="submit" name="Update" id="update" class="btn btn-success" style="width:110px; font-family: Arial; 
+                              border-radius:25px; color:white; background-color:#D2691E margin-top:20px; margin-bottom:20px; margin-left:30px; height:40px"></br>
                 </div>
               </form>
             </div>
