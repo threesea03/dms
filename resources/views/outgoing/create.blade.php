@@ -1,10 +1,12 @@
-@extends('outgoing.generate')
+@extends('outgoing.layout')
 @section('content')
  
 <div class="col-md-9" style="margin-left:150px">
   <div class="card" style="margin-top: 20px;">
     <div class="card">
-      <div class="card-header" style="font-weight:bold">Outgoing Documents</div>
+      <div class="card-header">
+        <h4 class="text-center"> Add Document </h4>
+    </div>
         <div class="card-body">
           <div id="create-row" class="row justify-content-center align items-center">
             <div id="create-column" class="col-md-6">
@@ -24,15 +26,21 @@
                   </div>
                 </div>
 
-                  <div class="col-md-12">
-                    <label>Type of Service</label></br>
-                    <input type="text" name="typeofservice" id="typeofservice" class="form-control"></br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="col-md-12">
+                      <label>Type of Service</label></br>
+                      <input type="text" name="typeofservice" id="typeofservice" class="form-control"></br>
+                    </div>
                   </div>
 
-                  <div class="col-md-12">
-                    <label>Office Concerned</label></br>
-                    <input type="text" name="officeconcerned" id="officeconcerned" class="form-control"></br>
+                  <div class="col-md-6">
+                    <div class="col-md-12">
+                      <label>Office Concerned</label></br>
+                      <input type="text" name="officeconcerned" id="officeconcerned" class="form-control"></br>
+                    </div>
                   </div>
+                </div>
 
                   <div class="col-md-12">
                     <label>Subject</label></br>
@@ -44,14 +52,20 @@
                     <input type="text" name="name" id="name" class="form-control"></br>
                   </div>
 
-                  <div class="col-md-12">
-                    <label>Agency</label></br>
-                    <input type="text" name="agency" id="agency" class="form-control"></br>
-                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="col-md-12">
+                        <label>Agency</label></br>
+                        <input type="text" name="agency" id="agency" class="form-control"></br>
+                      </div>
+                    </div>
 
-                  <div class="col-md-12">
-                    <label>Time Received</label></br>
-                    <input type="text" name="timereceived" id="timereceived" class="form-control"></br>
+                    <div class="col-md-6">
+                      <div class="col-md-12">
+                        <label>Time Received</label></br>
+                        <input type="text" name="timereceived" id="timereceived" class="form-control"></br>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="col-md-12">
@@ -69,13 +83,13 @@
                   </div>
         
                   <div class="btn-group" role="group">
-                    <a href="{{url()->previous()}}" class="btn btn-default" style="background-color: #84482F; 
+                    <a href="{{url()->previous()}}" class="btn btn-default" style="background-color: #3B919B; 
                             width:110px; font-family: Arial; border-radius:25px; color:white; margin-top:20px; margin-bottom:20px; 
                             margin-left:200px; height:40px;">Cancel</a>
                       
                     <input type="submit" value="Save" class="btn btn-sm" style="margin-top:20px; margin-bottom:20px; 
                                 margin-left:20px; width:110px; height:40px; font-family: Arial; border-radius:25px; 
-                                background-color:#D2691E; color:white" data-inline:="true"></br>
+                                background-color:#365880; color:white" data-inline:="true"></br>
                   </div>
                 </form>
               </div>

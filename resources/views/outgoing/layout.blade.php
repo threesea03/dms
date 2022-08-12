@@ -5,10 +5,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
 
-      <nav class="navbar navbar-light" style="background-color: #D2691E">
+      <nav class="navbar navbar-light" style="background-color: #365880">
         <div class="col-md-7">
-          <div class="container-fluid" style="margin-top:10px; margin-bottom:10px">
-            <a class="navbar-brand mb-0" style="font-family: Arial, Helvetica, sans-serif; font-weight:bold; color:white; font-size:23px">
+          <div class="container-fluid" style="margin-top:7px; margin-bottom:7px">
+            <a class="navbar-brand mb-0" style="font-family: Verdana; font-weight:bold; color:white; font-size:23px">
               Document Tracking System 
             </a>
           </div>
@@ -18,14 +18,12 @@
               <div class="input-group">
                   <input type="search" name="search" class="form-control" style="height: 31px; width:60px" placeholder="Search">
                   <span class="input-group-prepend">
-                      <button type="submit" class="btn btn-sm" style="margin-left: 2px;background-color: #84482F; color:white">Search</button>
+                      <button type="submit" class="btn btn-sm" style="margin-left: 2px;background-color: #3B919B; color:white">Search</button>
                   </span>
               </div>
           </form> 
       </div>
       </nav>
-
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
         <div class="container-fluid">
           {{-- <a class="navbar-brand" style="font-family: Arial, Helvetica, sans-serif; font-weight:bold;"> 
