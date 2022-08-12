@@ -1,17 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\{Outgoing, Incoming};
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard');
-        $pending = Outgoing::where('remarks', 'Pending')->count();
-         return view ('outgoing.index')
-                     ->with('outgoing', $outgoing)
-                     ->with('pending_count', $pending);
+        
+        $outgoing_count = Outgoing::count();
+        $incoming_count = Incoming::count();
+        $total_count = $outgoing_count + $incoming_count;
+        $pending_out = Outgoing::where('remarks', 'Pending')->count();
+        $done_out = Outgoing::where('remarks', 'Done')->count();
+        $pending_in = Incoming::where('remarks', 'Pending')->count();
+        $done_in = Incoming::where('remarks', 'Done')->count();
+        return view('admin.dashboard')
+                        ->with('done_out', $done_out)
+                        ->with('pending_out', $pending_out)
+                        ->with('pending_in', $pending_in)
+                        ->with('done_in', $done_in)
+                        ->with('outgoing_count', $outgoing_count)
+                        ->with('incoming_count', $incoming_count)
+                        ->with('total_count', $total_count);
     }
 }

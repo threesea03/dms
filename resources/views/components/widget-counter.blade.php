@@ -1,13 +1,10 @@
-<div>
-    <div class="">
-      <div class="col-md-6" style="margin-top:20px; margin-bottom: 20px">  
-        <div class="" style="margin-left:8px; font-weight:bold">
-          <span>{{ $header }}</span>
-        </div>
+<div class="flex flex-col">
+    <div class="flex gap-4" >
+      {{ $slot }}
+      <span class="font-bold text-xl">{{ $header }}</span>
+    </div>
 
-        <div class="" style="margin-left: 1rem;width:100%">
-          <span class="text-truncate" style="margin-left:150px">count:{{ $count }}</span>
-        </div>
-      <div>
+    <div class="flex justify-end">
+      <span class="text-truncate text-4xl">{{ $count }}</span>
     </div>
 </div>

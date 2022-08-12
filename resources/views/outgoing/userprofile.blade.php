@@ -17,7 +17,7 @@ rel="stylesheet"
         <div class="row d-flex justify-content-center">
             <div class="col-md-10 mt-5 pt-5">
                 <div class="row z-depth-3">
-                    <div class="col-sm-4 rounded-left" style="background-color: #D2691E">
+                    <div class="col-sm-4 rounded-left" style="background-color: #365880">
                         <div class="card-block text-center text-white">
                             <i class="fas fa-user-tie fa-7x mt-5"></i>
                             <h4 class="font-weight-bold mt-4">Baguio City Hall</h4>
@@ -26,7 +26,7 @@ rel="stylesheet"
                         </div>
                     </div>
                     <div class="col-sm-8 rounded-right" style="background-color: #E6E6FA">
-                        <h3 class="mt-3 text-center">Informaion</h3>
+                        <h3 class="mt-3 text-center">Information</h3>
                         <hr>
                         <div class="container">
                             <div class="" style="font-weight:bold">
@@ -53,7 +53,7 @@ rel="stylesheet"
                             <label> Phone Number: </label>
                             </div>
 
-                            <a href="{{url()->previous()}}" class="btn" style="background-color: #84482F; margin-top:20px; margin-bottom:20px; 
+                            <a href="{{url()->previous()}}" class="btn" style="background-color: #3B919B; margin-top:20px; margin-bottom:20px; 
                                 margin-left:430px; width:110px; height:40px; font-family: Arial; border-radius:25px; color:white" 
                                 data-inline:="true"> Back </a></br>
                         </div>
