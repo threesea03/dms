@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DocumentRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Log;
 
 class OutgoingController extends Controller
 {
@@ -14,8 +16,13 @@ class OutgoingController extends Controller
     {
         $outgoing = Outgoing::where('subject', 'like', '%'. $request->search . '%')
                             ->orWhere('typeofservice', 'like', '%'. $request->search .'%')
+                            ->orWhere('officeconcerned', 'like', '%'. $request->search .'%')
+                            ->orWhere('name', 'like', '%'. $request->search .'%')
+                            ->orWhere('agency', 'like', '%'. $request->search .'%')
+                            ->orWhere('date', 'like', '%'. $request->search .'%')
                             ->orderBy('ctrli','DESC')
-                            ->get();
+                            ->paginate(5);
+                            // ->get();
         return view ('outgoing.index')->with('outgoing', $outgoing);
     }
     
@@ -32,6 +39,13 @@ class OutgoingController extends Controller
         $path = $request->file('files')->storeAs('files',$fileName,'public');
         $input["files"] = '/storage/'.$path;
         Outgoing::create($input);
+        Log::create([
+            'user_id' => Auth::id(),
+            'old_data' => null,
+            'new_data' => null,
+            'action' => ' Created a Record',
+            'module' => 'Outgoing'
+        ]);
         return redirect('outgoing')->with('flash_message', 'Added Successfully.');  
     }
     
@@ -51,10 +65,21 @@ class OutgoingController extends Controller
     {
         $outgoing = Outgoing::find($id);
         $input = $request->all();
-        $fileName = time().$request->file('files')->getClientOriginalName();
-        $path = $request->file('files')->storeAs('files',$fileName,'public');
-        $input["files"] = '/storage/'.$path;
+        if($request->file('files')){
+            $fileName = time().$request->file('files')->getClientOriginalName();
+            $path = $request->file('files')->storeAs('files',$fileName,'public');
+            $input["files"] = '/storage/'.$path;
+        }else{
+            $input['files'] = $outgoing->files;
+        }
         $outgoing->update($input);
+        Log::create([
+            'user_id' => Auth::id(),
+            'old_data' => null,
+            'new_data' => null,
+            'action' => ' Updated ' . $outgoing->subject,
+            'module' => 'Outgoing'
+        ]);
         return redirect('outgoing')->with('flash_message', 'File Updated.');  
     }
 

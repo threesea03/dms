@@ -9,14 +9,14 @@
                     </div>
                     <div class="card-body">
                             <div class="col-md-6">
-                                <a href="{{ url('/outgoing/create') }}" class="btn btn-sm" title="Add New Document" style="background-color: #D2691E; color:white">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New Document
+                                <a href="{{ url('/outgoing/create') }}" class="btn btn-sm" title="Add New Document" style="background-color: #365880; color:white">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> + Add Document
                                 </a>
                             </div>
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>CtrlNo. Internal</th>
@@ -44,14 +44,14 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->agency }}</td>
                                         <td>{{ $item->timereceived }}</td>
-                                        <td>{{ $item->remarks }}</td>
+                                        <td>{{ $item->progresschek }}</td>
 
                                         <td>
                                             <div class="btn-group" role="group">
-                                                <a href="{{ url('/outgoing/' . $item->ctrli) }}" title="View"><button style="background-color:#84482F; color:white" class="btn btn-sm">
+                                                <a href="{{ url('/outgoing/' . $item->ctrli) }}" title="View"><button style="background-color:#35919B; color:white" class="btn btn-sm">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>View</button></a>
                                                 <a href="{{ url('/outgoing/' . $item->ctrli . '/edit') }}" title="Edit"><button class="btn btn-sm" 
-                                                    style="margin-left: 2px; background-color:#D2691E; color:white"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button></a>
+                                                    style="margin-left: 2px; background-color: #365880; color:white"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -62,6 +62,7 @@
                     </div>
                 </div>
             </div>
+            {{ $outgoing->links() }}
         </div>
     </div>
 @endsection

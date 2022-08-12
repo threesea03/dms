@@ -1,4 +1,4 @@
-@extends('outgoing.layout')
+{{-- @extends('outgoing.layout')
 @section('content')
 
 
@@ -64,4 +64,4 @@ rel="stylesheet"
     </div>
 </body>
 
-@stop
+@stop --}}

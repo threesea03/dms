@@ -7,7 +7,7 @@
 <body>
 
       <!-- As a heading -->
-       <nav class="navbar navbar-light" style="background-color: #6A5ACD">
+       <nav class="navbar navbar-light" style="background-color: #365880">
         <div class="row">
           <div class="col-md-7">
           <div class="container-fluid">
@@ -22,7 +22,7 @@
             <div class="input-group" style="margin-left: 500px; margin-top:8px">
                 <input type="search" name="search" class="form-control" style="height: 31px; width:80px" placeholder="Search record">
                 <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-sm" style="margin-left: 2px; background-color:#E6E6FA">Search</button>
+                    <button type="submit" class="btn btn-sm" style="margin-left: 2px; background-color:#35919B; color:white">Search</button>
                 </span>
             </div>
           </form> 
@@ -41,11 +41,11 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                <li class="nav-item"> 
-                <a class="nav-link active" aria-current="page" href="{{ route('incoming.dashboard') }}">Dashboard</a>
+                <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
               </li>
-              <li class="nav-item"> 
+              {{-- <li class="nav-item">  
                 <a class="nav-link active" aria-current="page" href="#">About</a>
-              </li>
+              </li>--}}
               <li class="nav-item"> 
                 <a class="nav-link active" aria-current="page" href="{{ route('incoming.index') }}">Incoming</a>
               </li>
@@ -66,12 +66,12 @@
                 </ul> 
               </li>--}}
 
-              <li class="nav-item dropdown" style="margin-left: 1100px">
+              <li class="nav-item dropdown" style="margin-left: 1150px">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Menu
                 </a>
                 <ul class="dropdown-menu" style="right:0; left:auto" aria-labelledby="navbarDropdown">
-                  <span style="padding-left: 0.75rem">{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }} {{ Auth::user()->last_name }}</span>
+                  {{-- <span style="padding-left: 0.75rem">{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }} {{ Auth::user()->last_name }}</span> --}}
                   <li><a class="dropdown-item" href="{{ route('incoming.profile') }}">Profile</a></li>
                   <li><a class="dropdown-item" href="{{ url('manage-accounts') }}">Accounts</a></li>
                   <li><a class="dropdown-item" href="{{ route('incoming.logs') }}">Logs</a></li>

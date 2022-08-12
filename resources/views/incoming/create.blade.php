@@ -4,7 +4,7 @@
 <div class="col-md-8" style="margin-left:250px">
     <div class="card" style="margin-top: 20px; margin-bottom:20px">
         <div class="card-header">
-            <h4 class="text-center"> Add Document </h4>
+            <h5 class="text-center"> Add Document </h5>
         </div>
         <div class="card-body">
             <div id="createblade-row" class="row justify-content-center align-items-center">
@@ -64,13 +64,16 @@
                                   <input type="file" name="files" id="files" class="form-control"></br>
  
                              <div class="row">
-                                    <label>Status 
-                                     <select id="remarks" name="remarks_type" class="form-select">
-                                        <option selected disabled>Select</option>
+                                <div class="col-md-12">
+                                    <label>Progress Check</label>
+                                    <select id="remarks" name="remarks_type" class="form-select">
+                                        <option selected disabled>Select Status</option>
                                         <option value='Done'> Done </option>
                                         <option value='Pending'> Pending </option>
-                                      </select>
-                                    </label></br>
+                                    </select>
+                                </div>
+                                    
+                                    
                                     {{-- <div class="col-md-12"> 
                                         <input type="text" name="remarks" id="remarks" style="margin-top: 4px" class="form-control"></br>
                                     </div>--}}

@@ -1,4 +1,4 @@
-@extends('outgoing.generate')
+@extends('outgoing.layout')
 @section('content')
  
 <div class="col-md-9" style="margin-left:150px">
@@ -51,7 +51,7 @@
 
                   <div class="col-md-12">
                     <label>Time Received</label></br>
-                    <input type="text" name="timereceived" id="timereceived" class="form-control"></br>
+                    <input type="time" name="timereceived" id="timereceived" class="form-control"></br>
                   </div>
 
                   <div class="col-md-12">

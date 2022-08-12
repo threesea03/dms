@@ -14,7 +14,7 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <a href="{{ url('/incoming/create') }}" class="btn btn-sm" title="Add New Document" style="background-color: #6A5ACD; color:white">
+                                <a href="{{ url('/incoming/create') }}" class="btn btn-sm" title="Add New Document" style="background-color: #365880; color:white">
                                     <i class="fa fa-plus" aria-hidden="true"></i> + Add Document
                                 </a>
                             </div>
@@ -80,8 +80,12 @@
  
                                         <td>
                                             <div class="btn-group" role="group">
-                                            <a href="{{ url('/incoming/' . $item->ctrli) }}" title="View"><button class="btn btn-sm" style="background-color: #E6E6FA"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/incoming/' . $item->ctrli . '/edit') }}" title="Edit"><button class="btn btn-sm" style="margin-left: 2px; background-color:#6A5ACD; color:white"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/incoming/' . $item->ctrli) }}" title="View">
+                                                <button class="btn btn-sm" style="background-color:#35919B; color:white"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                    View
+                                                </button>
+                                            </a>
+                                            <a href="{{ url('/incoming/' . $item->ctrli . '/edit') }}" title="Edit"><button class="btn btn-sm" style="margin-left: 2px; background-color: #365880; color:white"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -93,8 +97,9 @@
  
                     </div>
                 
+                </div>
             </div>
-        </div>
         {{ $incoming->links() }}
+        </div>
     </div>
 @endsection

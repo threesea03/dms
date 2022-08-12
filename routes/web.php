@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComputeTimeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\OutgoingController;
@@ -42,14 +43,20 @@ Route::get('incoming/{incoming}', [IncomingController::class, 'show'])->name('in
 Route::post('incoming/{incoming}/edit', [IncomingController::class, 'update'])->name('incoming.update');
 Route::get('incoming/{id}/edit', [IncomingController::class, 'edit'])->name('incoming.edit');
 Route::get('profile',[IncomingController::class,'profile'])->name('incoming.profile');
-Route::get('dashboard', [IncomingController::class,'dashboard'])->name('incoming.dashboard');
+// Route::get('dashboard', [IncomingController::class,'dashboard'])->name('incoming.dashboard');
 Route::get('trackingsystem-logs',[IncomingController::class, 'logs'])->name('incoming.logs');
+Route::post('incoming/{id}/add/remark',[RemarkController::class, 'addIncoming'])->name('incoming.remark.add');
+
+Route::get('DTR', [ComputeTimeController::class, 'computeTime']);
 
 Route::get('login', [LoginController::class, 'login'])->name('login.show');
 Route::post('login',[LoginController::class,'loginUser'])->name('login');
 Route::get('logout', [LoginController::class, 'logout']);
-Route::get('register',[LoginController::class, 'showRegister']);
+Route::get('register',[LoginController::class, 'showRegister'])->name(('showRegister'));
 Route::post('register',[LoginController::class, 'register']);
+Route::post('user/delete/{id}',[LoginController::class,'destroy']);
+Route::post('setup-password',[LoginController::class,'forgotPassword'])->name('setup.password');
+Route::get('changepassword',[LoginController::class,'setup'])->name('changepassword');
 // Route::post('incoming',[LoginController::class,'loginUser'])->name('incoming');
 
 Route::get('manage-accounts',[UserController::class,'manageuser'])->name('accounts');

@@ -4,7 +4,7 @@
 <div class="col-md-8" style="margin-left:250px">
 <div class="card" style="margin-top: 20px; margin-bottom:20px">
   <div class="card-header">
-    <h4 class="text-center"> Edit Information</h4>
+    <h5 class="text-center"> Edit Information</h5>
   </div>
   <div class="card-body">
     <div id="createblade-row" class="row justify-content-center align-items-center">
@@ -75,13 +75,12 @@
                 </div>
 
                 <label>Progress Check</label></br> 
-                    <select id="remarks" name="remarks" class="form-select">
-                        <option selected disabled>Status</option>
-                        <option value='Done'> Done </option>
-                        <option value='Pending'> Pending </option>
-                    </select> 
+                <select id="remarks" name="remarks" class="form-select">
+                    <option selected disabled>Status</option>
+                    <option value='Done' {{ $incoming->remarks == "Done" ? 'selected': ''}}> Done </option>
+                    <option value='Pending' {{ $incoming->remarks == "Pending" ? 'selected': ''}}> Pending </option>
+                </select> 
                     
-
             <div class="btn-group" role="group">
                 <a href="{{url('incoming')}}" class="btn" style="width:110px; font-family: Arial; border-radius:25px; background-color: #E6E6FA; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
                 <input type="submit" value="Update" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color: #6A5ACD; color:white" data-inline:="true"></br>

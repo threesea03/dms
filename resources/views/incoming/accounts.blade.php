@@ -15,7 +15,7 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <a href="{{ url('register') }}" class="btn btn-sm" title="Add New Document" style="background-color: #6A5ACD; color:white">
+                                <a href="{{ url('register') }}" class="btn btn-sm" title="Add New Document" style="background-color: #365880; color:white">
                                     <i class="fa fa-plus" aria-hidden="true"></i> + Add User
                                 </a>
                             </div>
@@ -65,11 +65,10 @@
  
                                         <td>
                                             <div class="btn-group" role="group">
-                                            <a href="{{ url('user/' .$item->id) }}" title="View"><button class="btn btn-sm" style="background-color: #E6E6FA"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <form method="POST" action="{{ url('/manage-accounts' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
+                                            <a href="{{ url('user/' .$item->id) }}" title="View"><button class="btn btn-sm" style="background-color:#35919B; color:white"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <form method="POST" action="{{ url('/user/delete/'  . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ csrf_field() }}
-                                                <button type="submit" style="margin-left: 2px; background-color:#6A5ACD; color:white" class="btn btn-sm" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" style="margin-left: 2px; background-color: #365880; color:white" class="btn btn-sm" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                             </div>
                                         </td>

@@ -17,7 +17,7 @@ rel="stylesheet"
         <div class="row d-flex justify-content-center">
             <div class="col-md-10 mt-5 pt-5">
                 <div class="row z-depth-3">
-                    <div class="col-sm-4 rounded-left" style="background-color: #6A5ACD">
+                    <div class="col-sm-4 rounded-left" style="background-color: #365880; color:white">
                         <div class="card-block text-center text-white">
                             <i class="fas fa-user-tie fa-7x mt-5"></i>
                             <h4 class="font-weight-bold mt-4">Baguio City Hall</h4>

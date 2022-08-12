@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -39,7 +40,11 @@ class LoginController extends Controller
         if(Hash::check($request->password, $user->password)) {
             Auth::login($user);
             $request->session()->put('Logged User', $user->id);
-            return redirect('incoming');
+            if(Auth::user()->isNew){
+                return redirect()->route('changepassword');
+            }else{
+                return redirect('incoming');
+            }
         } else{
             return back()->with('fail', 'Incorrect password');
         }
@@ -64,19 +69,45 @@ class LoginController extends Controller
             //                 ->mixedCase()
             //                 ->numbers()
             //                 ->symbols(),
-            'password' => 'required'
-        ]);
 
+        ]);
         $fields['name'] = $fields['first_name'] . ' ' . $fields['middle_name'] . ' ' . $fields['last_name'];
-        
+        $pass = Str::random(9);
+        $name = $fields['name'];
+        $fields['password'] = Hash::make($pass);
         $user = User::create($fields);
 
-        return redirect()->route('accounts');
+        return redirect()->route('showRegister')->with('message', "$name's password is $pass, please be sure to change this accounts password on login. ");
     }
 
     public function forgotPassword(Request $request)
     {
-        Auth::user()->password = Hash::make($request->password);
+        $fields = $request->validate([
+            'password' => [
+                'required',
+                Password::min(8)
+                    ->letters()
+                    ->mixedCase()
+                    ->numbers()
+                    ->symbols()
+            ]
+        ]); 
+        $user = Auth::user();
+        $user->password = Hash::make($fields['password']);
+        $user->isNew = false;
+        $user->save();
+        return redirect()->route('incoming.index');
+    }
+
+    public function setup()
+    {
+        return view('auth.forgotpassword');
+    }
+
+    public function destroy($id)
+    {
+        User::destroy($id);
+        return redirect()->route('accounts')->with('flash_message', 'Deleted Successfully!');  
     }
 
 

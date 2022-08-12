@@ -15,6 +15,9 @@
                           @if (Session::has('success'))
                           <div class="alert alert-success"> {{Session::get('success')}}</div>
                           @endif
+                          @if(Session::has('message'))
+                            <div class="alert alert-success">{{Session::get('message') }}.</div>
+                          @endif
                           @if (Session::has('fail'))
                           <div class="alert alert-danger"> {{Session::get('fail')}}</div>
                           @endif
@@ -100,21 +103,23 @@
                           </div>
                             
 
-                              <div class="col-md-12">
-                                  <label>Password</label>
-                                  <input type="password" name="password" id="password" class="form-control" required></br>
-                                  <span class="text-danger">
-                                    @error('password')
-                                    {{ $message }}
-                                    @enderror
-                                </span>
-                              </div>
-
-                              <div class="col-md-12">
-                                <label>Confirm Password</label>
-                                <input type="password" name="password_confirmation" id="password" class="form-control" required></br>
-                            </div>
-
+                                @if(Auth::id() != 1){
+                                  <div class="col-md-12">
+                                      <label>Password</label>
+                                      <input type="password" name="password" id="password" class="form-control" required></br>
+                                      <span class="text-danger">
+                                        @error('password')
+                                        {{ $message }}
+                                        @enderror
+                                    </span>
+                                  </div>
+    
+                                  <div class="col-md-12">
+                                    <label>Confirm Password</label>
+                                    <input type="password" name="password_confirmation" id="password" class="form-control" required></br>
+                                  </div>
+                                }
+                                @endif
 
                                 <div class="btn-group" role="group">
                                   <a href="{{url('incoming')}}" class="btn" style="background-color: #E6E6FA; width:110px; font-family: Arial; border-radius:25px; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>

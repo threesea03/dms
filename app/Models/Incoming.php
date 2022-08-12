@@ -12,4 +12,9 @@ class Incoming extends Model
     protected $table = 'incoming';
     protected $primaryKey = 'ctrli';
     protected $fillable = ['ctrle', 'date', 'time','reciever','typeofservice','subject','officeconcerned','endorsedto','files','remarks'];
+
+    public function remarksList()
+    {
+        return $this->morphMany(Remark::class, 'remarkable');
+    }
 }
