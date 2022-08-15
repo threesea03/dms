@@ -10,7 +10,7 @@
                     <div class="card-body">
                             <div class="col-md-6">
                                 <a href="{{ url('/outgoing/create') }}" class="btn btn-sm" title="Add New Document" style="background-color: #3A6289; color:white">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New Document
+                                    <i class="fa fa-plus" aria-hidden="true"></i> + Add Document
                                 </a>
                             </div>
                         <br/>

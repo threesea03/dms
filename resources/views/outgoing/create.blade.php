@@ -18,11 +18,11 @@
                 <div class="row">
                   <div class="col-md-6">
                     <label>Date</label></br>
-                    <input type="date" name="date" id="date" class="form-control"></br>
+                    <input type="date" name="date" id="date" class="form-control" required></br>
                   </div>
                   <div class="col-md-6">
                     <label>Time</label></br>
-                    <input type="time" name="time" id="time" class="form-control"></br>
+                    <input type="time" name="time" id="time" class="form-control" required></br>
                   </div>
                 </div>
 
@@ -30,40 +30,40 @@
                   <div class="col-md-6">
                     <div class="col-md-12">
                       <label>Type of Service</label></br>
-                      <input type="text" name="typeofservice" id="typeofservice" class="form-control"></br>
+                      <input type="text" name="typeofservice" id="typeofservice" class="form-control" required></br>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="col-md-12">
                       <label>Office Concerned</label></br>
-                      <input type="text" name="officeconcerned" id="officeconcerned" class="form-control"></br>
+                      <input type="text" name="officeconcerned" id="officeconcerned" class="form-control" required></br>
                     </div>
                   </div>
                 </div>
 
                   <div class="col-md-12">
                     <label>Subject</label></br>
-                    <input type="text" name="subject" id="subject" class="form-control"></br>
+                    <input type="text" name="subject" id="subject" class="form-control" required></br>
                   </div>
 
                   <div class="col-md-12">
                     <label>Name</label></br>
-                    <input type="text" name="name" id="name" class="form-control"></br>
+                    <input type="text" name="name" id="name" class="form-control" required></br>
                   </div>
 
                   <div class="row">
                     <div class="col-md-6">
                       <div class="col-md-12">
                         <label>Agency</label></br>
-                        <input type="text" name="agency" id="agency" class="form-control"></br>
+                        <input type="text" name="agency" id="agency" class="form-control" required></br>
                       </div>
                     </div>
 
                     <div class="col-md-6">
                       <div class="col-md-12">
                         <label>Time Received</label></br>
-                        <input type="time" name="timereceived" id="timereceived" class="form-control"></br>
+                        <input type="time" name="timereceived" id="timereceived" class="form-control" required></br>
                       </div>
                     </div>
 
@@ -71,12 +71,12 @@
 
                   <div class="col-md-12">
                     <label>Files</label></br>
-                    <input type="file" name="files" id="files" class="form-control"></br>
+                    <input type="file" name="files" id="files" class="form-control" required></br>
                   </div>
 
                   <div class="row">
                     <label> Status </label></br>
-                     <select id="remarks" name="progresschek" class="form-select">
+                     <select id="remarks" name="progresschek" class="form-select" required>
                         <option selected disabled>Select Status</option>
                         <option> Pending </option>
                         <option value='Done'> Done </option>

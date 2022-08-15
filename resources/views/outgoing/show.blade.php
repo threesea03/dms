@@ -31,8 +31,12 @@
             <form action="{{ route('outgoing.remark.add', ['id' => $outgoing->ctrli]) }}" method="post">
               {!! csrf_field() !!}
               <input type="text" name="body" id="remarks" style="margin-top: 4px" class="form-control" placeholder=""></br>
-              <input type="submit" name="Update" id="update" class="btn" style="background-color: #3B919B; 
-                          color:white; border-radius: 10px; margin-left:183px">
+              <a href="{{url('outgoing')}}" 
+                class="btn" 
+                style="background-color: #3A6289; color:white; margin-left:150px">
+                Back
+              </a>
+              <input type="submit" name="Update" id="update" class="btn" style="background-color: #3B919B; color:white">
             </form>
           </div>
             <p style="font-weight:bold; padding-top:30px"> Title: {{ $outgoing->subject }} </p>
@@ -50,8 +54,6 @@
                 </div>
               </div>
             @endforeach
-            <a href="{{url()->previous()}}" class="btn" style="background-color: #3A6289; 
-                    color:white; margin-left:176px; border-radius:10px; margin-top: 20px">Go Back</a>
         </div>
       </div>
     </div>

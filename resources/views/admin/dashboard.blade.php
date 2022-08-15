@@ -114,33 +114,28 @@
     </script> --}}
 
     <div class="flex flex-col h-screen w-screen">
-        <div class="flex flex-row h-24 justify-between px-3 items-center" style="background-color:#365880">
-            <span class="text-2xl font-bold font-family: Verdana text-white">Document Management System</span>
+        <div class="flex flex-row h-24 justify-between px-3 py-1 items-center" style="background-color:#365880">
+            <span class="text-3xl font-bold text-white px-2 py-1">Document Tracking System</span>
         </div>
-        <div class="flex flex-row h-16 justify-between items-center px-3">
-            <div class="">
+        <div class="flex flex-row h-20 justify-between items-center px-3 py-1 bg-slate-100">
+            <div class="px-3">
                 <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">Dashboard</a>
                 <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('incoming.index') }}">Incoming</a>
                 <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('outgoing.index') }}">Outgoing</a>
                 <a href="{{ route('outgoing.index') }}"></a>
             </div>
-            {{-- <div class="flex flex-row">
-                <span class="text-lg fon-bold">Manage</span>
-            </div> --}}
-
-            <!-- component -->
-<!-- This is an example component -->
-<div class="max-w-lg mx-auto" style="margin-left:990px">
+            
+<div class="" style="margin-left:990px">
     
     <button class="text-black font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" 
-            type="button" data-dropdown-toggle="dropdown">Manage<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" 
+            type="button" data-dropdown-toggle="dropdown">Menu<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" 
             xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
 
     <!-- Dropdown menu -->
-    <div class="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4" id="dropdown">
+    <div class="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4 flex" id="dropdown">
         <ul class="py-1" aria-labelledby="dropdown">
         <li>
-            <a href="{{ route('outgoing.userprofile') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Users</a>
+            <a href="{{ route('outgoing.userprofile') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
         </li>
         <li>
             <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Accounts</a>
@@ -148,6 +143,9 @@
         <li>
             <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Logs</a>
         </li>
+
+        <li><hr class="dropdown-divider"></li>
+
         <li>
             <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</a>
         </li>
@@ -156,22 +154,10 @@
     
 </div>
 
-<script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
- 
-            {{-- <li class="nav-item dropdown" style="margin-left:990px"> 
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-                data-bs-toggle="dropdown" aria-expanded="false"> Manage </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="right:0; left:auto">
-                  <li><a class="dropdown-item" href="{{ route('outgoing.userprofile') }}">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Accounts</a></li>
-                  <li><a class="dropdown-item" href="#">Logs</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="{{ route('outgoing.index') }}">Log out</a></li>
-                </ul>
-              </li> --}}
+    <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
               
         </div>
-        <div class="flex flex-col h-full w-full items-center" style="margin-top:130px">
+        <div class="flex flex-col h-full w-full items-center" style="margin-top:30px">
             <div class="grid grid-cols-5 gap-3 p-3 text-white">
                 <div class="col-span-2 row-span-2 rounded p-5" style="background-color: #365880"> 
                     <x-big-widget-counter header="Total Documents" count="{{ $total_count }}">
@@ -229,6 +215,85 @@
                             d="M688 312v-48c0-4.4-3.6-8-8-8H296c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8zm-392 88c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H296zm376 116c-119.3 0-216 96.7-216 216s96.7 216 216 216s216-96.7 216-216s-96.7-216-216-216zm107.5 323.5C750.8 868.2 712.6 884 672 884s-78.8-15.8-107.5-44.5C535.8 810.8 520 772.6 520 732s15.8-78.8 44.5-107.5C593.2 595.8 631.4 580 672 580s78.8 15.8 107.5 44.5C808.2 653.2 824 691.4 824 732s-15.8 78.8-44.5 107.5zM761 656h-44.3c-2.6 0-5 1.2-6.5 3.3l-63.5 87.8l-23.1-31.9a7.92 7.92 0 0 0-6.5-3.3H573c-6.5 0-10.3 7.4-6.5 12.7l73.8 102.1c3.2 4.4 9.7 4.4 12.9 0l114.2-158c3.9-5.3.1-12.7-6.4-12.7zM440 852H208V148h560v344c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V108c0-17.7-14.3-32-32-32H168c-17.7 0-32 14.3-32 32v784c0 17.7 14.3 32 32 32h272c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8z"/>
                         </svg>
                     </x-widget-counter>
+                </div>
+              </div>
+        </div>
+            {{-- <div class="h-full w-full">
+                <table class="table-fixed w-full">
+                    <thead>
+                        <tr>
+                            <th>USER</th>
+                            <th>INCOMING</th>
+                            <th>OUTOGING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th> User 1 </th>
+                            <th> 30 </th>
+                            <th> 58 </th>
+                        </tr>
+                </table>
+            </div> --}}
+            <div class="h-full w-full">
+                <div class="overflow-x-auto">
+                  <div class="py-2 inline-block min-w-full">
+                    <div class="overflow-hidden">
+                      <table class="w-full">
+                        <thead class="border-b">
+                          <tr>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                              USER
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                              INCOMING
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                              OUTGOING
+                            </th>
+                            {{-- <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                              Handle
+                            </th> --}}
+                          </tr>
+                        </thead>
+                        <tbody> 
+                          <tr class="border-b">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                1
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              Otto
+                            </td>
+                          </tr>
+                          {{-- <tr class="bg-white border-b">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              Jacob
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              Thornton
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              @fat
+                            </td>
+                          </tr>
+                          <tr class="bg-white border-b">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              Larry
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              Wild
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              @twitter --}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
         </div>
