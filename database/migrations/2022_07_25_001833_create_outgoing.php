@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements("ctrli");
             $table->string("date");
             $table->string("time");
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string("typeofservice");
             $table->string("officeconcerned");
             $table->string("subject");

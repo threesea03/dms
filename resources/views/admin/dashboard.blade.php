@@ -114,11 +114,11 @@
     </script> --}}
 
     <div class="flex flex-col h-screen w-screen">
-        <div class="flex flex-row h-24 justify-between px-3 items-center" style="background-color:#365880">
-            <span class="text-2xl font-bold font-family: Verdana text-white">Document Management System</span>
+        <div class="flex flex-row h-24 justify-between px-3 py-1 items-center" style="background-color:#365880">
+            <span class="text-3xl font-bold text-white px-2 py-1">Document Tracking System</span>
         </div>
-        <div class="flex flex-row h-16 justify-between items-center px-3">
-            <div class="">
+        <div class="flex flex-row h-20 justify-between items-center px-3 py-1 bg-slate-100">
+            <div class="px-3">
                 <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">Dashboard</a>
                 <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('incoming.index') }}">Incoming</a>
                 <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('outgoing.index') }}">Outgoing</a>

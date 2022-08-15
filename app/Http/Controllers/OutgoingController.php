@@ -35,6 +35,7 @@ class OutgoingController extends Controller
     {   
         $input = $request->all();
         $input['remarks'] =  $request->remarks ?? $request->remarks_type;
+        $input['user_id'] = Auth::id();
         $fileName = time().$request->file('files')->getClientOriginalName();
         $path = $request->file('files')->storeAs('files',$fileName,'public');
         $input["files"] = '/storage/'.$path;

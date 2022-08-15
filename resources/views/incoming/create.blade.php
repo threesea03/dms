@@ -73,7 +73,6 @@
                                     </select>
                                 </div>
                                     
-                                    
                                     {{-- <div class="col-md-12"> 
                                         <input type="text" name="remarks" id="remarks" style="margin-top: 4px" class="form-control"></br>
                                     </div>--}}
@@ -81,8 +80,8 @@
                                   
 
                               <div class="btn-group" role="group">
-                                  <a href="{{url('incoming')}}" class="btn" style="background-color: #E6E6FA; width:110px; font-family: Arial; border-radius:25px; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
-                                  <input type="submit" value="Save" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color:#6A5ACD; color:white" data-inline:="true"></br>
+                                  <a href="{{url('incoming')}}" class="btn" style="background-color:#35919B; color:white; width:110px; font-family: Arial; border-radius:25px; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
+                                  <input type="submit" value="Save" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color: #365880; color:white" data-inline:="true"></br>
                               </div>
                         </form>
                     </div>

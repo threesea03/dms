@@ -10,7 +10,7 @@
                     <div class="card-body">
                             <div class="col-md-6">
                                 <a href="{{ url('/outgoing/create') }}" class="btn btn-sm" title="Add New Document" style="background-color: #3A6289; color:white">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New Document
+                                    <i class="fa fa-plus" aria-hidden="true"></i> + Add Document
                                 </a>
                             </div>
                         <br/>
@@ -18,7 +18,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
-                                    <tr>
+                                    <tr style="text-align: center;">
                                         <th>CtrlNo. Internal</th>
                                         <th>Date</th>
                                         <th>Time</th>
@@ -34,7 +34,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($outgoing as $item)
-                                    <tr>
+                                    <tr style="text-align: center;">
                                         <td>{{ $item->ctrli }}</td>
                                         <td>{{ $item->date }}</td>
                                         <td>{{ $item->time }}</td>
