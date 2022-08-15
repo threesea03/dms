@@ -116,6 +116,27 @@
                             </div>
 
 
+                                <div class="">
+                                  <label> Position </label>
+                                  <input type="text" name="" id="" class="form-control">
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-6"> </br>
+                                      <select name="sq" class="form-select"> 
+                                        <option selected disabled>Choose a security question</option>
+                                        <option> Last 3 digits of your phone number? </option>
+                                        <option> What's your mother's maden name? </option>
+                                        <option> Who's your favorite singer? </option>
+                                        <option> What's your least favorite color? </option>
+                                        <option> What was your dream as a child? </option>
+                                      </select>
+                                  </div>
+                                  <div class="col-md-6"></br>
+                                    <input type="text" class="form-control" placeholder="Your answer here.">
+                                  </div>
+                                </div>
+
                                 <div class="btn-group" role="group">
                                   <a href="{{url('incoming')}}" class="btn" style="background-color: #E6E6FA; width:110px; font-family: Arial; border-radius:25px; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
                                   <input type="submit" value="Save" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color:#6A5ACD; color:white" data-inline:="true"></br>

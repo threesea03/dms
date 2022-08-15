@@ -12,12 +12,14 @@ class RemarkController extends Controller
     {
         $fields = $request->validate([
             'header' => 'nullable',
-            'body' => 'required'
+            'body' => 'required',
+            'time' => 'nullable',
         ]);
         $item = Outgoing::find($id);
-        $fields['header'] = Carbon::now()->toFormattedDateString();
+        $fields['header'] = Carbon::now()->format('d-m-Y | h:i:m');
         $fields['remarkable_id'] = $id;
         $item->remarksList()->create($fields);
+        // $fields ['time']= Carbon::now()->toFormattedDateString();
 
         return redirect()->route('outgoing.show', ['outgoing' => $id]);
     }

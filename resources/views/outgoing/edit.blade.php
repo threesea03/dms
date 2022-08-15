@@ -65,10 +65,11 @@
                 <label>Files</label></br>
                 <input type="file" name="files" id="files" class="form-control"></br>
 
-                <label> Progress Check </label></br>
-                <select id='remarks' name='remarks' class="form-select" style="margin-top:5px">
-                  <option selected disabled>Status</option>
-                  <option value='Done'> Done </option>
+                <label>Progress Check</label></br> 
+                <select id="remarks" name="progresschek" class="form-select">
+                    <option selected disabled>Status</option>
+                    <option value='Done' {{ $outgoing->progresschek == "Done" ? 'selected': ''}}> Done </option>
+                    <option value='Pending' {{ $outgoing->progresschek == "Pending" ? 'selected': ''}}> Pending </option>
                 </select>
 
                 {{-- <div class="btn-group" role="group"> --}}

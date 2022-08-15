@@ -33,7 +33,7 @@ Route::post('outgoing/{outgoing}/edit', [OutgoingController::class, 'update'])->
 Route::get('outgoing/{id}/edit', [OutgoingController::class, 'edit'])->name('outgoing.edit');
 Route::post('outgoing/{id}/add/remark', [RemarkController::class, 'addOutgoing'])->name('outgoing.remark.add');
 Route::get('dashboard/test',[DashboardController::class, 'dashboard'])->name('dashboard');
-Route::get('userprofile',[OutgoingController::class,'userprofile'])->name('outgoing.userprofile');
+Route::get('userprofile', [OutgoingController::class,'userprofile'])->name('outgoing.userprofile');
 
 Route::get('incoming', [IncomingController::class, 'index'])->name('incoming.index');
 Route::post('incoming', [IncomingController::class, 'store'])->name('incoming.store');
