@@ -35,7 +35,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
-                                    <tr>
+                                    <tr style="text-align: center;">
                                         <th>Ctrl Internal</th>
                                         <th>Ctrl External</th>
                                         <th>Date</th>
@@ -52,7 +52,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($incoming as $item)
-                                    <tr>
+                                    <tr style="text-align: center;">
                                         <td>{{ $item->ctrli }}</td>
                                         <td>{{ $item->ctrle }}</td>
                                         <td>{{ $item->date }}</td>

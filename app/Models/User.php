@@ -47,4 +47,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    protected $appends = [
+        'pending_incoming',
+        'done_incoming',
+        'pending_outgoing',
+        'done_outgoing',
+    ];
+
+
+    public function incoming(){
+        return $this->hasMany(Incoming::class);
+    }
+
+    public function outgoing(){
+        return $this->hasMany(Outgoing::class);
+    }
+
+    public function getPendingIncomingAttribute(){
+        return $this->incoming()->where('remarks', 'Pending')->count();
+    }
+
+    public function getDoneIncomingAttribute(){
+        return $this->incoming()->where('remarks', 'Done')->count();
+    }
+
+    public function getPendingOutgoingAttribute(){
+        return $this->outgoing()->where('remarks', 'Pending')->count();
+    }
+
+    public function getDoneOutgoingAttribute(){
+        return $this->outgoing()->where('remarks', 'Done')->count();
+    }
 }

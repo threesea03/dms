@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
-
         <div class="container" style="padding-top: 100px">
             <div class="row">
                 <div class="col-md-6">
@@ -49,6 +48,10 @@
                         </div>
                         <div class="form-group" style="margin-top: 20px">
                             <button class="btn btn-block" type="submit" style="background-color: #6A5ACD; color:white">Sign In</button>
+                        </div>
+                        <div class="form-group" style="margin-top: 20px">
+                            <button class="btn btn-block" type="submit" style="background-color: #365880; color:white">Sign In</button>
+                            <button type="button" class="btn btn-link">Forgot Password</button>
                         </div>
                     </form>
                 </div>

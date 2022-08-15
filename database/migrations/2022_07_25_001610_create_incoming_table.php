@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('incoming', function (Blueprint $table) {
             $table->bigIncrements("ctrli");
             $table->string("ctrle");
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string("date");
             $table->string("time");
             $table->string("reciever");

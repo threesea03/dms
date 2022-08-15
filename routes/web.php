@@ -7,6 +7,7 @@ use App\Http\Controllers\OutgoingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RemarkController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Models\Incoming;
@@ -45,6 +46,8 @@ Route::get('incoming/{id}/edit', [IncomingController::class, 'edit'])->name('inc
 Route::get('profile',[IncomingController::class,'profile'])->name('incoming.profile');
 // Route::get('dashboard', [IncomingController::class,'dashboard'])->name('incoming.dashboard');
 Route::get('trackingsystem-logs',[IncomingController::class, 'logs'])->name('incoming.logs');
+
+
 Route::post('incoming/{id}/add/remark',[RemarkController::class, 'addIncoming'])->name('incoming.remark.add');
 
 Route::get('DTR', [ComputeTimeController::class, 'computeTime']);
@@ -61,3 +64,5 @@ Route::get('changepassword',[LoginController::class,'setup'])->name('changepassw
 
 Route::get('manage-accounts',[UserController::class,'manageuser'])->name('accounts');
 Route::get('user/{user}', [UserController::class, 'show']);
+
+Route::get('report', [ReportController::class, 'report'])->name('incoming.report');

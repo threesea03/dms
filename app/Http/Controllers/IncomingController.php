@@ -36,10 +36,7 @@ class IncomingController extends Controller
     {
         $input = $request->all();
         $input['remarks']= $request->remarks ?? $request->remarks_type;
-        $imageName = time().$request->file('photo')->getClientOriginalName();
-        $path = $request->file('photo')->storeAs('photo', $imageName,'public');
-        $input['photo'] = '/storage/'.$path;
-
+        $input['user_id'] = Auth::id();
         $fileName = time().$request->file('files')->getClientOriginalName();
         $path = $request->file('files')->storeAs('files',$fileName,'public');
         $input["files"] = '/storage/'.$path;
@@ -130,5 +127,6 @@ class IncomingController extends Controller
                 ->paginate(10);
         return view('incoming.logs')->with('logs', $logs);
     }
+
 }
  

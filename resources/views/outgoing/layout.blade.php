@@ -48,6 +48,12 @@
                 <a class="nav-link active" aria-current="page" href="{{ route('outgoing.index') }}">Outgoing</a>
                 <a href="{{ route('outgoing.index') }}"></a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ route('incoming.report') }}">Report</a>
+                <a href="{{ route('outgoing.index') }}"></a>
+              </li>
+              
               {{-- <li class="nav-item dropdown">  
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Manage
@@ -59,7 +65,7 @@
                   <li><a class="dropdown-item" href="#">Logs</a></li>
                 </ul>
               </li> --}}
-              <li class="nav-item dropdown" style="margin-left:1150px"> 
+              <li class="nav-item dropdown" style="margin-left:1070px"> 
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
                 data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="right:0; left:auto">

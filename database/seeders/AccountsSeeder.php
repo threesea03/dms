@@ -25,6 +25,7 @@ class AccountsSeeder extends Seeder
             'middle_name' => 'admin',
             'last_name' => 'admin',
             'address' => 'None',
+            'isNew' => false,
             'phonenumber' => 'wala lang'
         ]);
         

@@ -33,10 +33,10 @@
                   <input type="text" name="body" id="remarks" style="margin-top: 4px" class="form-control" placeholder=""></br>
                   <a href="{{url('incoming')}}" 
                     class="btn" 
-                    style="background-color: #E6E6FA; margin-left:150px">
+                    style="background-color:#35919B; color:white; margin-left:150px">
                     Cancel
                   </a>
-                  <input type="submit" name="Update" id="update" class="btn" style="background-color: #6A5ACD; color:white">
+                  <input type="submit" name="Update" id="update" class="btn" style="background-color: #365880; color:white">
             </form>
           </div>
             <p class="text-center" style="font-weight:bold; font-size:20px; padding-top:20px">- - PROGRESS CHECK - -</p>

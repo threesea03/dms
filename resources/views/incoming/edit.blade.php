@@ -63,16 +63,36 @@
                 <input type="text" name="endorsedto" id="endorsedto" value="{{$incoming->endorsedto}}" class="form-control"></br>
             </div>
         </div>
-
-                <label>Files</label></br>
-                <div class="row">
-                    <div class="col-md-3">
-                        <embed src="{{ asset ($incoming->files) }}" style="height: 40px; width: 60px; margin-bottom:20px; margin-left:30px"></br>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="file" name="files" id="files" value="{{ $incoming->files }}" class="form-control"></br>
+        
+            <div class="row">
+                <div class="col-md-5">
+                    <label>Files</label></br>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <p style=""> Existing: </p>
+                        </div>
+                        <div class="col-md-9">
+                            <p class="text-left" style="color:red"> {{ $incoming->subject }}.pdf </p>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-12">
+                <input type="file" name="files" id="files" value="{{ $incoming->files }}" class="form-control"></br>
+            </div>
+
+                
+                {{-- <div class="row">
+                    <div class="col-md-4">
+                       <p style="color:red"> {{ $incoming->subject }} .pdf </p>
+                        <embed src="{{ asset ($incoming->files) }}" style="height: 40px; width: 60px; margin-bottom:20px; margin-left:30px"></br>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="file" name="files" id="files" value="{{ $incoming->files }}" class="form-control"></br>
+                    </div>
+                </div> --}}
 
                 <label>Progress Check</label></br> 
                 <select id="remarks" name="remarks" class="form-select">
@@ -82,8 +102,8 @@
                 </select> 
                     
             <div class="btn-group" role="group">
-                <a href="{{url('incoming')}}" class="btn" style="width:110px; font-family: Arial; border-radius:25px; background-color: #E6E6FA; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
-                <input type="submit" value="Update" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color: #6A5ACD; color:white" data-inline:="true"></br>
+                <a href="{{url('incoming')}}" class="btn" style="width:110px; font-family: Arial; border-radius:25px; background-color:#35919B; color:white; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>
+                <input type="submit" value="Update" class="btn" style="margin-top:20px; margin-bottom:20px; margin-left:10px; width:110px; height:40px; font-family: Arial; border-radius:25px; background-color: #3A6289; color:white" data-inline:="true"></br>
             </div>
                 </form>
             </div>
