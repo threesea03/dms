@@ -12,6 +12,7 @@ class Remark extends Model
     protected $fillable = [
         'header',
         'body',
+        'user_id',
         'remarkable_id'
     ];
     public function remarkable()

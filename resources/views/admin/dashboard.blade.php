@@ -123,6 +123,7 @@
                 <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('incoming.index') }}">Incoming</a>
                 <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('outgoing.index') }}">Outgoing</a>
                 <a href="{{ route('outgoing.index') }}"></a>
+                <a class="nav-link active" aria-current="page" style="margin-left:10px" href="#">Report</a>
             </div>
             
 <div class="" style="margin-left:990px">
@@ -251,9 +252,7 @@
                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                               OUTGOING
                             </th>
-                            {{-- <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                              Handle
-                            </th> --}}
+                            
                           </tr>
                         </thead>
                         <tbody> 
@@ -266,29 +265,6 @@
                               Otto
                             </td>
                           </tr>
-                          {{-- <tr class="bg-white border-b">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              Jacob
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              Thornton
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              @fat
-                            </td>
-                          </tr>
-                          <tr class="bg-white border-b">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              Larry
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              Wild
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              @twitter --}}
-                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -297,6 +273,8 @@
                 </div>
               </div>
         </div>
+        
+        
     </div>
 </body>
 </html>

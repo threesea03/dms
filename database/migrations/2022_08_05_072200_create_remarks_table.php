@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('remarks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->morphs('remarkable');
             $table->string('header');
             $table->string('body');

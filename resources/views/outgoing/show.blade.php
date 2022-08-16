@@ -41,19 +41,21 @@
           </div>
             <p style="font-weight:bold; padding-top:30px"> Title: {{ $outgoing->subject }} </p>
             <p style="font-weight:bold; font-size:20px"> PROGRESS CHECK </p>
-            <p style="font-weight:bold">Status: {{ $outgoing->remarks }}</p>
-            {{-- <p style="font-weight:bold">Remarks: </p> --}}
-            @foreach ($outgoing->remarksList as $remark)
-              <div class="d-flex flex-row">
-                <div class="d-flex flex-column">
-                  {{-- <div class="" style="font-weight:bold"> 
-                    <label>Remarks:</label>
-                  </div>--}}
-                  <span class="fs-6 fw-3" style="font-weight:bold"> Remarks: {{ $remark->header }}</span>
-                  <span class="">{{ $remark->body }}</span>
+            <p style="font-weight:bold">Status: {{ $outgoing->progresschek }}</p> 
+            <p style="font-weight:bold">Remarks: </p>
+            <div style="height:40vh; overflow-y:auto;">
+              @foreach ($outgoing->remarksList as $remark)
+                <div class="d-flex flex-row"> 
+                  <div class="d-flex flex-column">
+                    {{-- <div class="" style="font-weight:bold"> 
+                      <label>Remarks:</label>
+                    </div>--}}
+                    <span class="fs-6 fw-3" style="font-weight:bold">{{ $remark->created_at->tz('Asia/Manila')->format('Y, M d | h:i:s') }}</span>
+                    <span class="">{{ $remark->body }}</span>
+                  </div>
                 </div>
-              </div>
-            @endforeach
+              @endforeach
+            </div>
         </div>
       </div>
     </div>

@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< Updated upstream
+=======
+use App\Models\Incoming;
+use Illuminate\Support\Facades\Auth;
+>>>>>>> Stashed changes
 use Illuminate\Http\Request;
 use App\Models\Outgoing;
 use Carbon\Carbon;
+use App\Models\Log;
 
 class RemarkController extends Controller
 {
@@ -18,8 +24,15 @@ class RemarkController extends Controller
         $item = Outgoing::find($id);
         $fields['header'] = Carbon::now()->format('d-m-Y | h:i:m');
         $fields['remarkable_id'] = $id;
+        $fields['user_id'] = Auth::id();
         $item->remarksList()->create($fields);
-        // $fields ['time']= Carbon::now()->toFormattedDateString();
+        Log::create([
+            'user_id' => Auth::id(),
+            'old_data' => null,
+            'new_data' => null,
+            'action' => ' Added a Remark to ' . $item->subject,
+            'module' => 'Outgoing'
+        ]);
 
         return redirect()->route('outgoing.show', ['outgoing' => $id]);
     }

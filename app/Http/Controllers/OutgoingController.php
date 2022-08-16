@@ -15,7 +15,12 @@ class OutgoingController extends Controller
         $outgoing = Outgoing::where('subject', 'like', '%'. $request->search . '%')
                             ->orWhere('typeofservice', 'like', '%'. $request->search .'%')
                             ->orderBy('ctrli','DESC')
+<<<<<<< Updated upstream
                             ->get();
+=======
+                            ->paginate(10);
+                            // ->get();
+>>>>>>> Stashed changes
         return view ('outgoing.index')->with('outgoing', $outgoing);
     }
     
