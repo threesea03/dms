@@ -47,9 +47,6 @@
                             </span>
                         </div>
                         <div class="form-group" style="margin-top: 20px">
-                            <button class="btn btn-block" type="submit" style="background-color: #6A5ACD; color:white">Sign In</button>
-                        </div>
-                        <div class="form-group" style="margin-top: 20px">
                             <button class="btn btn-block" type="submit" style="background-color: #365880; color:white">Sign In</button>
                             <button type="button" class="btn btn-link">Forgot Password</button>
                         </div>

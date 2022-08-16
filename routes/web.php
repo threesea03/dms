@@ -66,3 +66,5 @@ Route::get('manage-accounts',[UserController::class,'manageuser'])->name('accoun
 Route::get('user/{user}', [UserController::class, 'show']);
 
 Route::get('report', [ReportController::class, 'report'])->name('incoming.report');
+Route::post('report', [ReportController::class, 'dateFilter'])->name('incoming.dateFilter');
+Route::get('report/generate', [ReportController::class, 'exportReport'])->name('generate.report');

@@ -14,7 +14,7 @@ class OutgoingController extends Controller
 {
     public function index(Request $request)
     {
-        $outgoing = Outgoing::where('subject', 'like', '%'. $request->search . '%')
+        $outgoing = Outgoing::orWhere('subject', 'like', '%'. $request->search . '%')
                             ->orWhere('typeofservice', 'like', '%'. $request->search .'%')
                             ->orWhere('officeconcerned', 'like', '%'. $request->search .'%')
                             ->orWhere('name', 'like', '%'. $request->search .'%')

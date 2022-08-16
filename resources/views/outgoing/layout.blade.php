@@ -70,7 +70,9 @@
                 data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="right:0; left:auto">
                   <li><a class="dropdown-item" href="{{ route('incoming.profile')}}">Profile</a></li>
+                  @if (Auth::id() == 1)
                   <li><a class="dropdown-item" href="{{ route('accounts') }}">Accounts</a></li>
+                  @endif
                   <li><a class="dropdown-item" href="{{ route('incoming.logs') }}">Logs</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{{ url('logout') }}">Log out</a></li>
