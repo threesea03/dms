@@ -6,16 +6,85 @@ use App\Models\User;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithDrawings;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ReportExport implements FromQuery
+class ReportExport implements FromQuery, ShouldAutoSize, WithHeadings, WithStyles, WithDrawings
 {
     use Exportable;
+
 
     public function __construct($search, $from, $to)
     {
         $this->search = $search;
         $this->from = $from;
         $this->to = $to;
+    }
+
+    public function drawings()
+    {
+        $logo = new Drawing;
+        $logo->setName('Baguio City Logo');
+        $logo->setDescription('Baguio City Hall Seal');
+        $logo->setPath(public_path('/image/baguioseal.png'));
+        $logo->setHeight(90);
+        $logo->setCoordinates('A1');
+        return $logo;
+    }
+
+    public function styles(Worksheet $sheet){
+        return [
+             1    => ['font' => ['bold' => true]],
+             2    => ['font' => ['bold' => true]],
+             3    => ['font' => ['bold' => true]],
+             4    => ['font' => ['bold' => true]],
+             5    => ['font' => ['bold' => true]],
+             7    => ['font' => ['bold' => true]],
+        ];
+    }
+
+    public function headings(): array
+    {
+        return [
+            [
+                '',
+                'Baguio City Hall',
+            ],
+            [
+                '',
+                "Mayor's Office",
+            ],
+            [
+                '',
+                "Management in Information Technology Division",
+            ],
+            [
+                '',
+                "Data Center",
+            ],
+            [
+                '',
+                'MITD Docutracker Report',
+            ],
+            [
+                '',
+                '',
+            ],
+            [
+                'Name',
+                'Total Documents',
+                'Total Incoming Documents',
+                'Pending Incoming Documents',
+                'Done Incoming Documents',
+                'Total Outgoing Documents',
+                'Pending Outgoing Documents',
+                'Done Outgoing Documents',
+            ]
+        ];
     }
 
     public function query()

@@ -16,7 +16,7 @@ class ReportController extends Controller
     public function report(Request $request)
     {
         $users = $this->searchQuery($request->search ?? '', $request->from, $request->to)->get();
-        return view('incoming.report')   
+        return view('incoming.report')
                 ->with('items', $users)
                 ->with('values', [
                     'search' => $request->search,
