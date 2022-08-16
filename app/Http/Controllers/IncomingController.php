@@ -14,7 +14,7 @@ class IncomingController extends Controller
 {
     public function index(Request $request)
     {
-        $incoming = Incoming::where('reciever', 'like', '%'. $request->search . '%')
+        $incoming = Incoming::orWhere('reciever', 'like', '%'. $request->search . '%')
                             ->orWhere('typeofservice', 'like', '%'. $request->search .'%')
                             ->orWhere('subject', 'like', '%'. $request->search .'%')
                             ->orWhere('date', 'like', '%'. $request->search .'%')

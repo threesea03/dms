@@ -11,5 +11,6 @@ class Report extends Model
 
     protected $fillable =[
         'user_id',
+        'created_at'
     ];
 }

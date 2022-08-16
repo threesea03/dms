@@ -47,13 +47,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
-    protected $appends = [
-        'pending_incoming',
-        'done_incoming',
-        'pending_outgoing',
-        'done_outgoing',
-    ];
 
 
     public function incoming(){

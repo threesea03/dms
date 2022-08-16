@@ -1,55 +1,36 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Exports;
 
 use App\Models\User;
-use App\Models\Report;
-use App\Exports\ReportExport;
-use DB;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
 
-class ReportController extends Controller
+class ReportExport implements FromQuery
 {
-    //
-    public function report(Request $request)
+    use Exportable;
+
+    public function __construct($search, $from, $to)
     {
-        $users = $this->searchQuery($request->search ?? '', $request->from, $request->to)->get();
-        return view('incoming.report')   
-                ->with('items', $users)
-                ->with('values', [
-                    'search' => $request->search,
-                    'from' => $request->from,
-                    'to' => $request->to,
-                ]);
+        $this->search = $search;
+        $this->from = $from;
+        $this->to = $to;
     }
 
-    public function dateFilter(Request $request)
+    public function query()
     {
-        $items = $request->all();
-        // ->whereBetween('created_at',[$request->from, $request->to])
-        // ->get();
-        return view('incoming.report')->with('items',$items);
-    }
+        $range = [$this->from, $this->to];
 
-    public function exportReport(Request $request){
-
-        return (new ReportExport($request->search, $request->from, $request->to))->download('Docutracker Export.xlsx');
-    }
-
-    public function searchQuery($search, $from, $to){
-        $range = [$from, $to];
-
-        if(!isset($from) || $from ==  ''){
+        if(!isset($this->from) || $this->from ==  ''){
             $range[0] = Carbon::now()->startOfCentury();
         }
 
-        if(!isset($to) || $to ==  ''){
+        if(!isset($this->to) || $this->to ==  ''){
             $range[1] = Carbon::now();
         }
-        $searchkeys = preg_split('/\s+./', $search, -1, PREG_SPLIT_NO_EMPTY);
-        $results = User::withCount([
+        $searchkeys = preg_split('/\s+./', $this->search, -1, PREG_SPLIT_NO_EMPTY);
+        $results = User::select('name')->withCount([
                             'incoming',
                             'incoming as incoming_count' => function ($query) use ($range){
                                 $query->whereBetween('created_at', $range);
