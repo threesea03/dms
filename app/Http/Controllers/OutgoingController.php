@@ -21,8 +21,7 @@ class OutgoingController extends Controller
                             ->orWhere('agency', 'like', '%'. $request->search .'%')
                             ->orWhere('date', 'like', '%'. $request->search .'%')
                             ->orderBy('ctrli','DESC')
-                            ->paginate(5);
-                            // ->get();
+                            ->paginate(10);
         return view ('outgoing.index')->with('outgoing', $outgoing);
     }
     

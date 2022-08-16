@@ -61,6 +61,22 @@
                     <input type="text" name="timereceived" id="timereceived" value="{{$outgoing->timereceived}}" class="form-control" /></br>
                   </div>
                 </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                      <label>Files</label></br>
+                  </div>
+                  <div class="col-md-7">
+                      <div class="row">
+                          <div class="col-md-4">
+                              <p style="">Existing:</p>
+                          </div>
+                          <div class="col-md-8">
+                              <p class="text-left" style="color:red">{{ $outgoing->subject }}.pdf </p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
         
                 <label>Files</label></br>
                 <input type="file" name="files" id="files" class="form-control"></br>
