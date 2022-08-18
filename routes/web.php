@@ -64,6 +64,7 @@ Route::get('changepassword',[LoginController::class,'setup'])->name('changepassw
 
 Route::get('manage-accounts',[UserController::class,'manageuser'])->name('accounts');
 Route::get('user/{user}', [UserController::class, 'show']);
+Route::post('regenerate/password', [LoginController::class, 'regeneratePassword'])->name('password.regenerate');
 
 Route::get('report', [ReportController::class, 'report'])->name('incoming.report');
 Route::post('report', [ReportController::class, 'dateFilter'])->name('incoming.dateFilter');

@@ -10,12 +10,10 @@
         <div class="container" style="padding-top: 100px">
             <div class="row">
                 <div class="col-md-6">
-                <div>
                     <img
-                        style="padding-top:100px; padding-left:200px"
-                        src="{{ asset('image/baguioseal.png') }}">
-                </div>
-                </div>
+                        style="margin-top: 90px; padding-left:200px; height: 300px; width: 490px"
+                        src="{{ asset('image/MITD.png') }}">
+                </div> 
 
                 <div class="col-md-4 col-md-offset-4" style="margin-top: 100px">
                     <h4> Login </h4>
@@ -48,7 +46,7 @@
                         </div>
                         <div class="form-group" style="margin-top: 20px">
                             <button class="btn btn-block" type="submit" style="background-color: #365880; color:white">Sign In</button>
-                            <button type="button" class="btn btn-link">Forgot Password</button>
+                            {{-- <a href="{{ route('securityPassword') }}" type="button" class="btn btn-link">Forgot Password</a> --}}
                         </div>
                     </form>
                 </div>

@@ -57,7 +57,7 @@
                                         @enderror
                                     </span>
                                 </div>
-                                <div class="col-md-10" style="margin-top:15px">
+                                {{-- <div class="col-md-10" style="margin-top:15px">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <select name="sq" class="form-select"> 
@@ -74,7 +74,7 @@
                                         </div>
                                     </div>
                                     
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <button class="btn" type="submit" style="background-color: #3A6289; color:white; margin-left:490px">Save</button>
                                 </div>

@@ -114,10 +114,10 @@
     </script> --}}
 
     <div class="flex flex-col h-screen w-screen">
-        <div class="flex flex-row h-24 justify-between px-3 py-1 items-center" style="background-color:#365880">
+        <div class="flex flex-row h-24 justify-between px-3 py-2.5 items-center" style="background-color:#365880">
             <span class="text-3xl font-bold text-white px-2 py-1">Document Tracking System</span>
         </div>
-        <div class="flex flex-row h-20 justify-between items-center px-3 py-1 bg-slate-100">
+        <div class="flex flex-row h-20 justify-between items-center px-3 py-2.5 bg-slate-100">
             <div class="px-3">
                 <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">Dashboard</a>
                 <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('incoming.index') }}">Incoming</a>
@@ -139,16 +139,16 @@
             <a href="{{ route('outgoing.userprofile') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
         </li>
         <li>
-            <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Accounts</a>
+            <a href="{{ route('accounts') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Accounts</a>
         </li>
         <li>
-            <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Logs</a>
+            <a href="{{ route('incoming.logs') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Logs</a>
         </li>
 
         <li><hr class="dropdown-divider"></li>
 
         <li>
-            <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</a>
+            <a href="{{ url('logout') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Log out</a>
         </li>
         </ul>
     </div>
@@ -158,7 +158,7 @@
     <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
               
         </div>
-        <div class="flex flex-col h-full w-full items-center" style="margin-top:30px">
+        <div class="flex flex-col h-full w-full items-center" style="margin-top:100px">
             <div class="grid grid-cols-5 gap-3 p-3 text-white">
                 <div class="col-span-2 row-span-2 rounded p-5" style="background-color: #365880"> 
                     <x-big-widget-counter header="Total Documents" count="{{ $total_count }}">
@@ -236,11 +236,11 @@
                         </tr>
                 </table>
             </div> --}}
-            <div class="h-full w-full">
-                <div class="overflow-x-auto">
+            <div class="h-full w-full" style="margin-top:30px">
+                <div class="overflow-x-auto" >
                   <div class="py-2 inline-block min-w-full">
-                    <div class="overflow-hidden">
-                      <table class="w-full">
+                    <div class="flex flex-row justify-center overflow-hidden">
+                      {{-- <table class="w-full">
                         <thead class="border-b">
                           <tr>
                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
@@ -267,7 +267,46 @@
                           </tr>
                           </tr>
                         </tbody>
-                      </table>
+                      </table> --}}
+                      <table class="table table-striped px-3">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th colspan="2" style="text-align: center;">Status</th>
+                                <th></th>
+                                <th colspan="2" style="text-align: center;">Status</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th class="text-center px-3 py-1">Users</th>
+                                <th class="text-center px-3 py-1">Total</th>
+                                <th class="text-center px-3 py-1">Incoming</th>
+                                <th class="text-center px-3 py-1">Done</th>
+                                <th class="text-center px-3 py-1">Pending</th>
+                                <th class="text-center px-3 py-1">Outgoing</th>
+                                <th class="text-center px-3 py-1">Done</th>
+                                <th class="text-center px-3 py-1">Pending</th>
+                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        @foreach($items as $item)
+                            <tr>
+                                <td class="text-justify">{{ $item->name }}</td>
+                                <td class="w-40 text-center">{{ $item->incoming_count + $item->outgoing_count}}</td>
+                                <td class="w-40 text-center">{{ $item->incoming_count}}</td>
+                                <td class="w-40 text-center">{{ $item->incoming_done_count}}</td>
+                                <td class="w-40 text-center">{{ $item->incoming_pending_count}}</td>
+                                <td class="w-40 text-center">{{ $item->outgoing_count}}</td>
+                                <td class="w-40 text-center">{{ $item->outgoing_done_count}}</td>
+                                <td class="w-40 text-center">{{ $item->outgoing_pending_count}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                     </div>
                   </div>
                 </div>

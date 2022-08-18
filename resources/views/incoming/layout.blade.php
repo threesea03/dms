@@ -68,6 +68,11 @@
                   <li><a class="dropdown-item" href="#">Logs</a></li>
                 </ul> 
               </li>--}}
+              <li>
+                <div class="col-md-12">
+                  <p style="margin-left: 950px; margin-top:10px"> {{ Auth::user()->first_name }}</p>
+                </div>
+              </li>
 
               <li class="nav-item dropdown" style="margin-left: 1070px">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

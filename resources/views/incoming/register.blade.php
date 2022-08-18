@@ -24,7 +24,7 @@
                           
                           @if($errors->any())
                             {!! implode('', $errors->all('<div>:message</div>')) !!}
-                        @endif
+                          @endif
 
                           <div class="row">
                             <div class="col-md-4">
@@ -125,7 +125,7 @@
                                   <input type="text" name="" id="" class="form-control">
                                 </div>
 
-                                <div class="row">
+                                {{-- <div class="row">
                                   <div class="col-md-6"> </br>
                                       <select name="sq" class="form-select"> 
                                         <option selected disabled>Choose a security question</option>
@@ -139,7 +139,7 @@
                                   <div class="col-md-6"></br>
                                     <input type="text" class="form-control" placeholder="Your answer here.">
                                   </div>
-                                </div>
+                                </div>   --}}
 
                                 <div class="btn-group" role="group">
                                   <a href="{{url('incoming')}}" class="btn" style="background-color:#35919B; color:white; width:110px; font-family: Arial; border-radius:25px; margin-top:20px; margin-bottom:20px; margin-left:400px; height:40px;">Cancel</a>

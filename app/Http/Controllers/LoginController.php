@@ -100,6 +100,25 @@ class LoginController extends Controller
         return redirect()->route('incoming.index');
     }
 
+    public function regeneratePassword(Request $request)
+    {
+        $fields = $request->validate([
+            'user_id' => 'required|exists:users,id',
+        ]);
+        $user = User::find($fields['user_id']);
+        $password = Str::random(10);
+        $user->password = Hash::make($password);
+        $user->isNew = true;
+        $user->save();
+        return view('incoming.profile')->with('user',$user)->with('password', $password);
+    }
+
+    // public function passwordQuestion()
+    // {
+    //     return view('auth.getpassword');
+    //     // ->with('login', $login)
+    // }
+
     public function setup()
     {
         return view('auth.forgotpassword');
@@ -108,6 +127,7 @@ class LoginController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
+
         Log::create([
             'user_id' => Auth::id(),
             'old_data' => null,
