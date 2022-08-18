@@ -19,7 +19,7 @@
     <div class="row">
 
       <div class="col-md-7">
-        <embed src="{{ asset ($outgoing->files) }}" style="height: 100vh; width: 70vw; margin-bottom:20px; margin-left:30px">
+        <embed src="{{ asset ($outgoing->files) }}" style="height: 100vh; width: 70vw; margin-bottom:20px; margin-left:30px" type="application/pdf" id="toPrint">
         </hr>
       </div>
 
@@ -58,6 +58,12 @@
             </div>
         </div>
       </div>
+
+      <script>
+        $("#printPDF").click(function(){
+          $("#toPrint").print();
+        });
+      </script>
     </div>
   </div>
 </div>

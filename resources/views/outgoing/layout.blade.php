@@ -7,17 +7,11 @@
 
       <nav class="navbar navbar-light" style="background-color: #365880">
         <div class="col-md-7">
-<<<<<<< Updated upstream
-          <div class="container-fluid" style="margin-top:7px; margin-bottom:7px">
-            <a class="navbar-brand mb-0" style="font-family: Verdana; font-weight:bold; color:white; font-size:23px">
-              Document Tracking System 
-            </a>
-=======
-        <div class="" style="padding-top:3px; padding-bottom:2px; margin-left:20px">
-          <span class="navbar-brand mb-0" style="font-size:30px; font-weight:bold; color:white">
-            Document Tracking System
-          </span>
-        </div>
+          <div class="container-fluid">
+            <span class="navbar-brand mb-0" style="font-size:30px; font-weight:bold; color:white ">
+              DOCUMENT TRACKING SYSTEM
+            </span>  
+          </div>
         </div>
         
         <div class="col-md-3">  

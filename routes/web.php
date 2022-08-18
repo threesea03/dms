@@ -50,7 +50,16 @@ Route::post('login',[LoginController::class,'loginUser'])->name('login');
 Route::get('logout', [LoginController::class, 'logout']);
 Route::get('register',[LoginController::class, 'showRegister']);
 Route::post('register',[LoginController::class, 'register']);
+Route::post('user/delete/{id}',[LoginController::class,'destroy']);
+Route::post('setup-password',[LoginController::class,'forgotPassword'])->name('setup.password');
+Route::get('changepassword',[LoginController::class,'setup'])->name('changepassword');
+// Route::get('securityPassword',[LoginController::class, 'passwordQuestion'])->name('securityPassword');
 // Route::post('incoming',[LoginController::class,'loginUser'])->name('incoming');
 
 Route::get('manage-accounts',[UserController::class,'manageuser'])->name('accounts');
-Route::get('user/{user}', [UserController::class, 'show']);
+Route::get('user/{user}', [UserController::class, 'show'])->name('accounts.show');
+Route::post('regenerate/password', [LoginController::class, 'regeneratePassword'])->name('password.regenerate');
+
+Route::get('report', [ReportController::class, 'report'])->name('incoming.report');
+Route::post('report', [ReportController::class, 'dateFilter'])->name('incoming.dateFilter');
+Route::get('report/generate', [ReportController::class, 'exportReport'])->name('generate.report');

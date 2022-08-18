@@ -76,7 +76,51 @@ class LoginController extends Controller
 
     public function forgotPassword(Request $request)
     {
-        Auth::user()->password = Hash::make($request->password);
+        $fields = $request->validate([
+            'password' => [
+                'required',
+                Password::min(8)
+                    ->letters()
+                    ->mixedCase()
+                    ->numbers()
+                    ->symbols()
+            ]
+        ]); 
+        $user = Auth::user();
+        $user->password = Hash::make($fields['password']);
+        $user->isNew = false;
+        $user->save();
+        return redirect()->route('incoming.index');
+    }
+
+    public function regeneratePassword(Request $request)
+    {
+        $fields = $request->validate([
+            'user_id' => 'required|exists:users,id',
+        ]);
+        $user = User::find($fields['user_id']);
+        $password = Str::random(10);
+        $user->password = Hash::make($password);
+        $user->isNew = true;
+        $user->save();
+        return view('incoming.profile')->with('user',$user)->with('password', $password);
+    }
+
+    // public function passwordQuestion()
+    // {
+    //     return view('auth.getpassword');
+    //     // ->with('login', $login)
+    // }
+
+    public function setup()
+    {
+        return view('auth.forgotpassword');
+    }
+
+    public function destroy($id)
+    {
+        User::destroy($id);
+        return redirect()->route('accounts')->with('flash_message', 'Deleted Successfully!');  
     }
 
 

@@ -35,8 +35,8 @@ rel="stylesheet"
                            <div class="col-md">
                                 <p>{{ $user->first_name }} </p>
                            </div>
-                        </div>
-                        <div class="row">
+                        
+                        {{-- <div class="row"> --}}
                             <div class="col-md-3">
                                 <p style="font-weight:bold"> Middle Name: </p>
                             </div>
@@ -51,16 +51,16 @@ rel="stylesheet"
                            <div class="col-md">
                                 <p>{{ $user->last_name }} </p>
                            </div>
-                        </div>
-                        <div class="row">
+                        {{-- </div> --}}
+                        {{-- <div class="row"> --}}
                             <div class="col-md-3">
                                 <p style="font-weight:bold"> Address: </p>
                             </div>
                            <div class="col-md">
                                 <p>{{ $user->address }} </p>
                            </div>
-                        </div>
-                        <div class="row">
+                        {{-- </div> --}}
+                        <div class="row"> 
                             <div class="col-md-3">
                                 <p style="font-weight:bold"> Phone Number: </p>
                             </div>
@@ -68,6 +68,14 @@ rel="stylesheet"
                                 <p>{{ $user->phonenumber }} </p>
                            </div>
                         </div>
+                        <form action="{{ route('password.regenerate') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+                            <button class="btn" type="submit" style="background-color: #3A6289; color:white; border-radius:10px; width:150px; margin-left:520px">Reset Password</button>
+                        </form>
+                        @if(isset($password))
+                            <label> New Password: {{ $password ? $password : '' }}</label>
+                        @endif
                     </div>
                 </div>
             </div>
