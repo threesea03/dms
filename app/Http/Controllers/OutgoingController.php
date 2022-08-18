@@ -38,12 +38,12 @@ class OutgoingController extends Controller
         $fileName = time().$request->file('files')->getClientOriginalName();
         $path = $request->file('files')->storeAs('files',$fileName,'public');
         $input["files"] = '/storage/'.$path;
-        Outgoing::create($input);
+        $outgoing = Outgoing::create($input);
         Log::create([
             'user_id' => Auth::id(),
             'old_data' => null,
             'new_data' => null,
-            'action' => ' Created a Record',
+            'action' => ' Created a Record: ' .$outgoing->subject,
             'module' => 'Outgoing'
         ]);
         return redirect('outgoing')->with('flash_message', 'Added Successfully.');  
@@ -73,13 +73,7 @@ class OutgoingController extends Controller
             $input['files'] = $outgoing->files;
         }
         $outgoing->update($input);
-        Log::create([
-            'user_id' => Auth::id(),
-            'old_data' => null,
-            'new_data' => null,
-            'action' => ' Updated ' . $outgoing->subject,
-            'module' => 'Outgoing'
-        ]);
+        $this->logChanges($outgoing->getChanges(), $outgoing);
         return redirect('outgoing')->with('flash_message', 'File Updated.');  
     }
 
@@ -89,5 +83,21 @@ class OutgoingController extends Controller
         return view('outgoing.userprofile');
     }
     
+    private function logChanges(array $changes, Outgoing $outgoing)
+    {
+        if(!empty($changes)){
+            unset($changes['updated_at']);
+            foreach($changes as $key => $value){
+                $subject = $outgoing->getOriginal('subject');
+                Log::create([
+                    'user_id' => Auth::id(),
+                    'old_data' => null,
+                    'new_data' => null,
+                    'action' => "Updated $subject's $key to $value",
+                    'module' => 'Incoming'
+                ]);
+            }
+        }
+    }
     
 }

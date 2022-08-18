@@ -45,7 +45,7 @@ class IncomingController extends Controller
             'user_id' => Auth::id(),
             'old_data' => null,
             'new_data' => null,
-            'action' => ' Created a Record',
+            'action' => ' Created a Record: '.$document->subject,
             'module' => 'Incoming'
         ]);
         return redirect('incoming')->with('flash_message', 'Added SUccessfully!');  
@@ -76,18 +76,7 @@ class IncomingController extends Controller
             $input['files'] = $incoming->files;
         }
         $incoming->update($input);
-        // Log::create([
-        //     'user_id' => 1,
-        //     'action' => 'update',
-        //     'module' => 'Incoming',
-        // ]);
-        Log::create([
-            'user_id' => Auth::id(),
-            'old_data' => null,
-            'new_data' => null,
-            'action' => ' Updated ' . $incoming->subject,
-            'module' => 'Incoming'
-        ]);
+        $this->logChanges($incoming->getChanges(), $incoming);
         return redirect('incoming')->with('flash_message', 'Updated SUccessfully!');  
     }
   
@@ -128,5 +117,21 @@ class IncomingController extends Controller
         return view('incoming.logs')->with('logs', $logs);
     }
 
+    private function logChanges(array $changes, Incoming $incoming)
+    {
+        if(!empty($changes)){
+            unset($changes['updated_at']);
+            foreach($changes as $key => $value){
+                $subject = $incoming->getOriginal('subject');
+                Log::create([
+                    'user_id' => Auth::id(),
+                    'old_data' => null,
+                    'new_data' => null,
+                    'action' => "Updated $subject's $key to $value",
+                    'module' => 'Incoming'
+                ]);
+            }
+        }
+    }
 }
  

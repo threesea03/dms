@@ -123,7 +123,7 @@
                 <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('incoming.index') }}">Incoming</a>
                 <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('outgoing.index') }}">Outgoing</a>
                 <a href="{{ route('outgoing.index') }}"></a>
-                <a class="nav-link active" aria-current="page" style="margin-left:10px" href="#">Report</a>
+                <a class="nav-link active" aria-current="page" style="margin-left:10px" href="{{ route('incoming.report') }}">Report</a>
             </div>
             
 <div class="" style="margin-left:990px">
