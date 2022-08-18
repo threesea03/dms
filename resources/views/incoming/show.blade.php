@@ -48,7 +48,7 @@
             @foreach ($incoming->remarksList as $remark)
               <div class="d-flex flex-row">
                 <div class="d-flex flex-column">
-                  <span class="fs-6 fw-3" style="font-weight:bold"> {{ $remark->header }}</span>
+                  <span class="fs-6 fw-3" style="font-weight:bold"> {{ $remark->header }} | {{ $remark->created_at->tz('Asia/Manila')->format('h:i') }}</span>
                   <span class="">{{ $remark->body }}</span>
                 </div>
               </div>

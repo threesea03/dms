@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Login;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Hash;
@@ -43,7 +44,7 @@ class LoginController extends Controller
             if(Auth::user()->isNew){
                 return redirect()->route('changepassword');
             }else{
-                return redirect('incoming');
+                return redirect()->route('dashboard');
             }
         } else{
             return back()->with('fail', 'Incorrect password');
@@ -64,19 +65,19 @@ class LoginController extends Controller
             'address' => 'required',
             'phonenumber' => 'required',
             'email' => 'required',
-            // 'password' => Password::min(8)
-            //                 ->letters()
-            //                 ->mixedCase()
-            //                 ->numbers()
-            //                 ->symbols(),
-
         ]);
         $fields['name'] = $fields['first_name'] . ' ' . $fields['middle_name'] . ' ' . $fields['last_name'];
         $pass = Str::random(9);
         $name = $fields['name'];
         $fields['password'] = Hash::make($pass);
         $user = User::create($fields);
-
+        Log::create([
+            'user_id' => Auth::id(),
+            'old_data' => null,
+            'new_data' => null,
+            'action' => ' One Account Created: ' .$user->username,
+            'module' => 'User'
+        ]);
         return redirect()->route('showRegister')->with('message', "$name's password is $pass, please be sure to change this accounts password on login. ");
     }
 
@@ -107,6 +108,13 @@ class LoginController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
+        Log::create([
+            'user_id' => Auth::id(),
+            'old_data' => null,
+            'new_data' => null,
+            'action' => ' One Account Deleted ',
+            'module' => 'User'
+        ]);
         return redirect()->route('accounts')->with('flash_message', 'Deleted Successfully!');  
     }
 

@@ -32,7 +32,15 @@ class RemarkController extends Controller
         $item = Incoming::find($id);
         $fields['header'] = Carbon::now()->toFormattedDateString();
         $fields['remarkable_id'] = $id;
+        $fields['user_id'] = Auth::id();
         $item->remarksList()->create($fields);
+        Log::create([
+            'user_id' => Auth::id(),
+            'old_data' => null,
+            'new_data' => null,
+            'action' => ' Added a Remark to ' . $item->subject,
+            'module' => 'Incoming'
+        ]);
 
         return redirect()->route('incoming.show', ['incoming' => $id]);
     }

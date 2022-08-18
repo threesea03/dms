@@ -67,4 +67,6 @@ Route::get('user/{user}', [UserController::class, 'show']);
 
 Route::get('report', [ReportController::class, 'report'])->name('incoming.report');
 Route::post('report', [ReportController::class, 'dateFilter'])->name('incoming.dateFilter');
-Route::get('report/generate', [ReportController::class, 'exportReport'])->name('generate.report');
+Route::get('report/generateExcel', [ReportController::class, 'exportExcelReport'])->name('generate.report');
+Route::get('report/generatePDF', [ReportController::class, 'exportPDFReport'])->name('generatepdf.report');
+Route::get('report/generateCSV', [ReportController::class, 'exportCSVReport'])->name('generatecsv.report');

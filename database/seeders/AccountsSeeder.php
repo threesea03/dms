@@ -17,16 +17,16 @@ class AccountsSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'danielstrator',
+            'name' => 'Frances Trisha Purisima',
             'username' => 'admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
-            'first_name' => 'admin',
-            'middle_name' => 'admin',
-            'last_name' => 'admin',
+            'first_name' => 'Frances Trisha',
+            'middle_name' => 'Urbina',
+            'last_name' => 'Purisima',
             'address' => 'None',
             'isNew' => false,
-            'phonenumber' => 'wala lang'
+            'phonenumber' => '09563326581'
         ]);
         
     }

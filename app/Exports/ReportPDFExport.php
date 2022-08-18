@@ -1,67 +1,57 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\User;
-use App\Models\Report;
-use App\Exports\ReportExport;
-use App\Exports\ReportPDFExport;
-use DB;
+namespace App\Exports;
+
+use Maatwebsite\Excel\Concerns\FromQuery;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ReportController extends Controller
+class ReportPDFExport implements FromQuery, WithHeadings, WithStyles
 {
-    //
-    public function report(Request $request)
+
+
+    public function styles(Worksheet $sheet){
+        return [
+             1    => ['font' => ['bold' => true], 'width' => 50],
+             2    => ['font' => ['bold' => true]],
+             3    => ['font' => ['bold' => true]],
+             4    => ['font' => ['bold' => true]],
+             5    => ['font' => ['bold' => true]],
+             7    => ['font' => ['bold' => true]],
+        ];
+    }
+
+    public function headings(): array
     {
-        $users = $this->searchQuery($request->search ?? '', $request->from, $request->to)->get();
-        return view('incoming.report')   
-                ->with('items', $users)
-                ->with('values', [
-                    'search' => $request->search,
-                    'from' => $request->from,
-                    'to' => $request->to,
-                ]);
+        return   [
+            'Name',
+            'Total Documents',
+            'Total Incoming Documents',
+            'Pending Incoming Documents',
+            'Done Incoming Documents',
+            'Total Outgoing Documents',
+            'Pending Outgoing Documents',
+            'Done Outgoing Documents',
+        ];
     }
-
-    public function dateFilter(Request $request)
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function query()
     {
-        $items = $request->all();
-        // ->whereBetween('created_at',[$request->from, $request->to])
-        // ->get();
-        return view('incoming.report')->with('items',$items);
-    }
+        $range = [$this->from, $this->to];
 
-    public function exportExcelReport(Request $request){
-
-        return (new ReportExport($request->search, $request->from, $request->to))->download('Docutracker Export.xlsx');
-    }
-
-    public function exportPDFReport(Request $request){
-
-        return (new ReportPDFExport($request->search, $request->from, $request->to))->download('Docutracker Export.pdf',\Maatwebsite\Excel\Excel::DOMPDF);
-    }
-
-    public function exportCSVReport(Request $request){
-
-        return (new ReportExport($request->search, $request->from, $request->to))->download('Docutracker Export.csv', \Maatwebsite\Excel\Excel::CSV, [
-            'Content-Type' => 'text/csv',
-      ]);
-    }
-
-    public function searchQuery($search, $from, $to){
-        $range = [$from, $to];
-
-        if(!isset($from) || $from ==  ''){
+        if(!isset($this->from) || $this->from ==  ''){
             $range[0] = Carbon::now()->startOfCentury();
         }
 
-        if(!isset($to) || $to ==  ''){
+        if(!isset($this->to) || $this->to ==  ''){
             $range[1] = Carbon::now();
         }
-        $searchkeys = preg_split('/\s+./', $search, -1, PREG_SPLIT_NO_EMPTY);
-        $results = User::withCount([
+        $searchkeys = preg_split('/\s+./', $this->search, -1, PREG_SPLIT_NO_EMPTY);
+        $results = User::select('name')->withCount([
                             'incoming',
                             'incoming as incoming_count' => function ($query) use ($range){
                                 $query->whereBetween('created_at', $range);
