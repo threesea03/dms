@@ -136,7 +136,7 @@
     <div class="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4 flex" id="dropdown">
         <ul class="py-1" aria-labelledby="dropdown">
         <li>
-            <a href="{{ route('outgoing.userprofile') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
+            <a href="{{ route('incoming.profile') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
         </li>
         <li>
             <a href="{{ route('accounts') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Accounts</a>
