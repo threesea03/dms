@@ -109,7 +109,8 @@ class IncomingController extends Controller
     public function logs(Request $request)
     {
         $logs = Log::with('user:id,name')
-                ->where('created_at', 'like', '%'. $request->search . '%')
+                ->orWhereRelation('user', 'name', 'like', '%' . $request->search . '%')
+                ->orWhere('created_at', 'like', '%'. $request->search . '%')
                 ->orWhere('action', 'like', '%'. $request->search .'%')
                 ->orWhere('module', 'like', '%'. $request->search .'%')
                 ->orderBy('id','DESC')

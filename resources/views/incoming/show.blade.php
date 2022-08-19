@@ -34,7 +34,7 @@
                   <a href="{{url('incoming')}}" 
                     class="btn" 
                     style="background-color:#35919B; color:white; margin-left:150px">
-                    Cancel
+                    Back
                   </a>
                   <input type="submit" name="Update" id="update" class="btn" style="background-color: #365880; color:white">
             </form>

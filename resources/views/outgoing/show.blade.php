@@ -33,10 +33,10 @@
               <input type="text" name="body" id="remarks" style="margin-top: 4px" class="form-control" placeholder=""></br>
               <a href="{{url('outgoing')}}" 
                 class="btn" 
-                style="background-color: #3A6289; color:white; margin-left:150px">
+                style="background-color: #3B919B; color:white; margin-left:150px">
                 Back
               </a>
-              <input type="submit" name="Update" id="update" class="btn" style="background-color: #3B919B; color:white">
+              <input type="submit" name="Update" id="update" class="btn" style="background-color: #3A6289; color:white">
             </form>
           </div>
             <p style="font-weight:bold; padding-top:30px"> Title: {{ $outgoing->subject }} </p>

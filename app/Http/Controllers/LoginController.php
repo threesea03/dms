@@ -63,6 +63,7 @@ class LoginController extends Controller
             'middle_name' => 'nullable',
             'last_name' => 'required',
             'address' => 'required',
+            'position' => 'required',
             'phonenumber' => 'required',
             'email' => 'required',
         ]);

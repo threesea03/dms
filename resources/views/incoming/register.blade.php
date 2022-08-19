@@ -122,7 +122,7 @@
 
                                 <div class="">
                                   <label> Position </label>
-                                  <input type="text" name="" id="" class="form-control">
+                                  <input type="text" name="position" id="" class="form-control">
                                 </div>
 
                                 {{-- <div class="row">
