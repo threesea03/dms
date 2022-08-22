@@ -74,21 +74,24 @@
                         <div class="col-md">
                                 <p>{{ $user->position }} </p>
                         </div>
-                        <form action="{{ route('password.regenerate') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="user_id" value="{{ $user->id }}">
-                            <button class="btn" type="submit" style="background-color: #3A6289; color:white; border-radius:10px; width:150px; margin-left:520px">Reset Password</button>
-                        </form>
-                        @if(isset($password))
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label style="font-weight: bold"> New Password: </label>
+                        
+                        @if (Auth::id() == 1)
+                            <form action="{{ route('password.regenerate') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                <button class="btn" type="submit" style="background-color: #3A6289; color:white; border-radius:10px; width:150px; margin-left:520px">Reset Password</button>
+                            </form>
+                            @if(isset($password))
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label style="font-weight: bold"> New Password: </label>
+                                    </div>
+                                    <div class="col-md">
+                                        <label> {{ $password ? $password : '' }}</label>
+                                    </div>
                                 </div>
-                                <div class="col-md">
-                                    <label> {{ $password ? $password : '' }}</label>
-                                </div>
-                            </div>
-                        @endif
+                            @endif
+                        @endif  
                     </div>
                 </div>
             </div>

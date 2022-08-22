@@ -40,7 +40,7 @@
                                         <th>Ctrl External</th>
                                         <th>Date</th>
                                         <th>Time</th>
-                                        <th>Reciever</th>
+                                        <th>Receiver</th>
                                         <th>Type of Service</th>
                                         <th>Subject</th>
                                         <th>Office Concerned</th>

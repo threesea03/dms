@@ -98,7 +98,7 @@ class LoginController extends Controller
         $user->password = Hash::make($fields['password']);
         $user->isNew = false;
         $user->save();
-        return redirect()->route('incoming.index');
+        return redirect()->route('dashboard');
     }
 
     public function regeneratePassword(Request $request)

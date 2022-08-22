@@ -7,6 +7,7 @@ use App\Http\Controllers\OutgoingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RemarkController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 
@@ -24,7 +25,7 @@ use App\Http\Models\Incoming;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('outgoing', [OutgoingController::class, 'index'])->name('outgoing.index');
@@ -71,3 +72,6 @@ Route::post('report', [ReportController::class, 'dateFilter'])->name('incoming.d
 Route::get('report/generateExcel', [ReportController::class, 'exportExcelReport'])->name('generate.report');
 Route::get('report/generatePDF', [ReportController::class, 'exportPDFReport'])->name('generatepdf.report');
 Route::get('report/generateCSV', [ReportController::class, 'exportCSVReport'])->name('generatecsv.report');
+
+Route::get('incoming/{id}/attachments', [FileController::class, 'getIncomingFile'])->name('incoming.file.get');
+Route::get('outgoing/{id}/attachments', [FileController::class, 'getOutgoingFile'])->name('outgoing.file.get');

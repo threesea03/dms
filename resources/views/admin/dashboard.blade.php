@@ -138,9 +138,11 @@
         <li>
             <a href="{{ route('incoming.profile') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
         </li>
+        @if (Auth::id() == 1)
         <li>
             <a href="{{ route('accounts') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Accounts</a>
         </li>
+        @endif
         <li>
             <a href="{{ route('incoming.logs') }}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Logs</a>
         </li>

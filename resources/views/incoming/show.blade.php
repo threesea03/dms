@@ -19,7 +19,7 @@
     <div class="row">
 
       <div class="col-md-7">
-        <embed src="{{ asset ($incoming->files) }}" style="height: 100vh; width: 70vw; margin-bottom:20px; margin-left:30px">
+        <embed src="{{ route('incoming.file.get', ['id' => $incoming->ctrli]) }}" style="height: 100vh; width: 70vw; margin-bottom:20px; margin-left:30px">
         </hr>
       </div>
 

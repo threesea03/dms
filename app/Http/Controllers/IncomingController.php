@@ -21,7 +21,7 @@ class IncomingController extends Controller
                             ->orWhere('endorsedto', 'like', '%'. $request->search .'%')
                             ->orWhere('ctrle', 'like', '%'. $request->search .'%')
                             ->orderBy('ctrli','DESC')
-                            ->paginate(5); 
+                            ->paginate(10); 
                             //->get();
         // $incoming = Incoming::all();
         return view ('incoming.index')->with('incoming', $incoming);
@@ -55,6 +55,7 @@ class IncomingController extends Controller
     public function show($id)
     {
         $incoming = Incoming::find($id);
+        $incoming->files = base64_encode(file_get_contents(substr($incoming->files,1)));
         return view('incoming.show')->with('incoming', $incoming);
     }
     

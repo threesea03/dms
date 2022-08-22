@@ -91,34 +91,40 @@ class ReportExport implements FromQuery, ShouldAutoSize, WithHeadings, WithStyle
     {
         $range = [$this->from, $this->to];
 
-        if(!isset($this->from) || $this->from ==  ''){
+        if(!isset($from) || $from ==  ''){
             $range[0] = Carbon::now()->startOfCentury();
+            if(isset($to)){
+                $range[1] = Carbon::parse($to);
+            }
         }
 
-        if(!isset($this->to) || $this->to ==  ''){
+        if(!isset($to) || $to ==  ''){
             $range[1] = Carbon::now();
+            if(isset($from)){
+                $range[0] = Carbon::parse($from);
+            }
         }
         $searchkeys = preg_split('/\s+./', $this->search, -1, PREG_SPLIT_NO_EMPTY);
         $results = User::select('name')->withCount([
                             'incoming',
                             'incoming as incoming_count' => function ($query) use ($range){
-                                $query->whereBetween('created_at', $range);
+                                $query->whereBetween('date', $range);
                             },
                             'incoming as incoming_pending_count' => function($query) use ($range) {
-                                $query->where('remarks', 'Pending')->whereBetween('created_at', $range);
+                                $query->where('remarks', 'Pending')->whereBetween('date', $range);
                             },
                             'incoming as incoming_done_count' => function($query) use ($range) {
-                                $query->where('remarks', 'Done')->whereBetween('created_at', $range);
+                                $query->where('remarks', 'Done')->whereBetween('date', $range);
                             },
                             'outgoing',
                             'outgoing as outgoing_count' => function ($query) use ($range) {
-                                $query->whereBetween('created_at', $range);
+                                $query->whereBetween('date', $range);
                             },
                             'outgoing as outgoing_pending_count' => function($query) use ($range) {
-                                $query->where('progresschek', 'Pending')->whereBetween('created_at', $range);
+                                $query->where('progresschek', 'Pending')->whereBetween('date', $range);
                             },
                             'outgoing as outgoing_done_count' => function($query) use ($range) {
-                                $query->where('progresschek', 'Done')->whereBetween('created_at', $range);
+                                $query->where('progresschek', 'Done')->whereBetween('date', $range);
                             },
                         ])
             ->where(function($query) use($searchkeys, $range) {
